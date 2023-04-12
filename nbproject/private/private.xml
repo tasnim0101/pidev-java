@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/chahr/pidev3A51/src/tn/esprit/gui/ajouter.fxml</file>
+            <file>file:/C:/Users/chahr/pidev3A51/src/tn/esprit/entities/Medecin.java</file>
+            <file>file:/C:/Users/chahr/pidev3A51/src/tn/esprit/services/IOperation.java</file>
+            <file>file:/C:/Users/chahr/pidev3A51/src/GestionMedecin/Assets/style.css</file>
+            <file>file:/C:/Users/chahr/pidev3A51/src/tn/esprit/tests/TestOperation.java</file>
+            <file>file:/C:/Users/chahr/pidev3A51/src/tn/esprit/entities/Operations.java</file>
+            <file>file:/C:/Users/chahr/pidev3A51/src/tn/esprit/services/PersonneService.java</file>
+            <file>file:/C:/Users/chahr/pidev3A51/src/tn/esprit/services/NewInterface.java</file>
+            <file>file:/C:/Users/chahr/pidev3A51/src/GestionMedecin/GestionMedecin.java</file>
+            <file>file:/C:/Users/chahr/pidev3A51/src/tn/esprit/gui/AjouterController.java</file>
+            <file>file:/C:/Users/chahr/pidev3A51/src/tn/esprit/services/OperationsService.java</file>
+            <file>file:/C:/Users/chahr/pidev3A51/src/tn/esprit/services/MedecinService.java</file>
+            <file>file:/C:/Users/chahr/pidev3A51/src/tn/esprit/services/IMedecin.java</file>
+            <file>file:/C:/Users/chahr/pidev3A51/src/tn/esprit/gui/MainController.java</file>
+            <file>file:/C:/Users/chahr/pidev3A51/src/tn/esprit/tools/MaConnexion.java</file>
+            <file>file:/C:/Users/chahr/pidev3A51/src/tn/esprit/gui/Main.fxml</file>
+            <file>file:/C:/Users/chahr/pidev3A51/src/tn/esprit/tests/TestMedecin.java</file>
+        </group>
+    </open-files>
+</project-private>

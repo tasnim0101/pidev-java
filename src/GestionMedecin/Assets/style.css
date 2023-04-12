@@ -1,0 +1,30 @@
+/* Set button background color */
+.button {
+    -fx-background-color: #87CEFA;
+}
+
+/* Set button text color */
+.button-text {
+    -fx-text-fill: white;
+}
+
+/* Set table colors */
+.table-view {
+    -fx-background-color: #F0F8FF; /* Set table background color */
+}
+
+.table-row-cell {
+    -fx-background-color: white; /* Set table row background color */
+    -fx-text-fill: #1E90FF; /* Set table row text color */
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #1E90FF; /* Set selected row background color */
+    -fx-text-fill: white; /* Set selected row text color */
+}
+.text-field {
+    -fx-background-color: #eaf2ff;
+    -fx-border-color: #4a90e2;
+    -fx-border-width: 2px;
+    -fx-border-radius: 4px;
+}
