@@ -10,12 +10,11 @@ import java.util.List;
 
 /**
  *
- * @author hamdi
- * @param <T>
+ * @author Fayechi
  */
-public interface IGestionHospital<T> {
-     void ajouter(T t)throws SQLException;
-     List<T> afficher();
-     void supprimer(T t);
-    void  modifier(T t);
+public interface NewInterface<T> {
+    public void ajouter(T t)throws SQLException;
+    public List<T> afficher();
+    public void supprimer(T t);
+    
 }

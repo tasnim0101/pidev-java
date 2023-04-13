@@ -20,29 +20,24 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author hamdi
+ * @author Asus store
  */
-public class NewFXMain extends Application {
+public class user extends Application {
     
     @Override
     public void start(Stage primaryStage) {
         try {
-            Parent root =FXMLLoader.load(getClass().getResource("service.fxml"));
-          Parent root2 = FXMLLoader.load(getClass().getResource("AfficherService.fxml"));
-Scene scene2 = new Scene(root2);
-Stage afficherServiceStage = new Stage();
-
-            Scene scene = new Scene(root);
+            Parent root = FXMLLoader.load(getClass().getResource("AjouterPersonne.fxml")) ; //ken mouch fi nafs package thot chemin cd ../
+            
+            Scene scene = new Scene(root, 300, 250);
             
             primaryStage.setTitle("Hello World!");
             primaryStage.setScene(scene);
-            afficherServiceStage.setTitle("Afficher Service");
-afficherServiceStage.setScene(scene2);
             primaryStage.show();
-            afficherServiceStage.show();
         } catch (IOException ex) {
-            Logger.getLogger(NewFXMain.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(user.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
 
     /**
