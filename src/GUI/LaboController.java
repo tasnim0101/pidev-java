@@ -39,6 +39,9 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import Services.laboService;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.Optional;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -215,7 +218,7 @@ public class LaboController implements Initializable {
             rs = st.executeQuery(query);
             labo l;
             while (rs.next()) {
-                l = new labo(rs.getInt("id"), rs.getString("nom"), rs.getString("bloc"), rs.getString("mail"), rs.getInt("tel"), rs.getString("img"), rs.getString("med"),rs.getDouble("average_rating"));
+                l = new labo(rs.getInt("id"), rs.getString("nom"), rs.getString("bloc"), rs.getString("mail"), rs.getInt("tel"), rs.getString("img"), rs.getString("med"), rs.getDouble("average_rating"));
                 laboList.add(l);
 
             }
@@ -239,7 +242,7 @@ public class LaboController implements Initializable {
     }
 
     @FXML
-    public void insertImage() {
+    public void insertImage() throws IOException {
 
         FileChooser open = new FileChooser();
 
@@ -249,15 +252,13 @@ public class LaboController implements Initializable {
 
         if (file != null) {
 
-            String path = file.getAbsolutePath();
+          String fileName = file.getName();
+String targetPath = "C:/xampp/htdocs/img/" + fileName;
+Files.copy(Paths.get(file.getAbsolutePath()), Paths.get(targetPath), StandardCopyOption.REPLACE_EXISTING);
 
-            path = path.replace("\\", "\\\\");
-
-            file_path.setText(path);
-
-            Image image = new Image(file.toURI().toString(), 200, 200, false, true);
-
-            imageView.setImage(image);
+file_path.setText(fileName);
+        Image image = new Image(file.toURI().toString(), 200, 200, false, true);
+        imageView.setImage(image);
 
         } else {
 
@@ -293,7 +294,6 @@ public class LaboController implements Initializable {
                 la.setTel(Integer.parseInt(telephone.getText()));
                 la.setImg(path);
                 la.setMed(medecin.getText());
-               
 
                 try {
                     sl.Modifier(la);
@@ -359,9 +359,12 @@ public class LaboController implements Initializable {
         medecin.setText(l.getMed());
         file_path.setText(l.getImg());
         telephone.setText("" + l.getTel());
+        
+String picture = "http://localhost/img/" + l.getImg();
+    System.out.println(picture);
+    Image image = new Image(picture, 110, 110, false, true);
 
-        String picture = "file:" + l.getImg();
-        Image image = new Image(picture, 110, 110, false, true);
+    imageView.setImage(image);
 
         imageView.setImage(image);
 
@@ -371,8 +374,6 @@ public class LaboController implements Initializable {
 
     }
 
-
-  
     @FXML
     private void page_rechercher(javafx.scene.input.MouseEvent event) {
         try {

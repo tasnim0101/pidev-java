@@ -25,9 +25,10 @@
     <jar href="lib\javax.mail.jar" size="434923" download="eager" />
     <jar href="lib\jfoenix-19.0.1.jar" size="2435023" download="eager" />
     <jar href="lib\jfoenix-8.0.10.jar" size="2710207" download="eager" />
+    <jar href="lib\jfreechart-1.5.4.jar" size="1643790" download="eager" />
     <jar href="lib\mail-5.1.2.jar" size="6275" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
-    <jar href="pidev.jar" size="64703" download="eager" />
+    <jar href="pidev.jar" size="83402" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="pidev" >
     <param name="requiredFXVersion" value="8.0+"/>

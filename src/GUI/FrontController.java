@@ -123,7 +123,7 @@ public class FrontController implements Initializable {
             anchorpane_star.getChildren().add(starImageView);
         }
 
-        // Add mouse click event handler to each star image view
+        
         for (ImageView starImageView : starImageViews) {
             starImageView.setOnMouseClicked(this::handleStarClick);
         }
@@ -233,10 +233,10 @@ public class FrontController implements Initializable {
             clear();
             return affichagePane;
         } else {
-            // Create a root item for the TreeView
+           
             TreeItem<String> rootItem = new TreeItem<>("Analyses :");
 
-            // Loop through the Analyse objects and create TreeItems for each
+          
             for (analyse analyse : list_analyse) {
                 String date = analyse.getDate();
                 if (date != null) {
@@ -245,22 +245,22 @@ public class FrontController implements Initializable {
                 }
             }
 
-            // Set the root item with its children to the treeView_analyse
+           
             treeView_analyse.setRoot(rootItem);
 
             treeView_analyse.getSelectionModel().selectedItemProperty().addListener(
                     (observable, oldValue, newValue) -> {
                         if (newValue == null) {
-                            // Handle null newValue, e.g., clear UI elements, etc.
+                          
                             return;
                         }
                         String i = newValue.getValue();
                         analyse a = sa.id_analyse(i);
                         if (a == null) {
-                            // Handle null analyse object, e.g., clear UI elements, etc.
+                      
                             return;
                         }
-                        // Update the label with the selected value
+                       
                         prix_analyse.setText(a.getPrix() + "");
                         date_analyse.setText(a.getDate());
                         resultat_analyse.setText(a.getResultat());

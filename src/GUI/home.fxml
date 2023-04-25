@@ -23,6 +23,8 @@
             <Button fx:id="analyse" mnemonicParsing="false" onMouseClicked="#analyseButton" prefHeight="50.0" prefWidth="150.0" style="-fx-text-fill: black;" styleClass="menuItem" text="Analyse" />
             <Button fx:id="laboratoire" mnemonicParsing="false" onMouseClicked="#laboratoireButton" prefHeight="50.0" prefWidth="150.0" style="-fx-text-fill: black;" styleClass="menuItem" text="Laboratoire" />
             <Button fx:id="rating" mnemonicParsing="false" onMouseClicked="#ratingButton" prefHeight="50.0" prefWidth="150.0" style="-fx-text-fill: black;" styleClass="menuItem" text="Rating" />
+            <Button fx:id="stat" mnemonicParsing="false" onMouseClicked="#statButton" prefHeight="50.0" prefWidth="150.0" style="-fx-text-fill: black;" styleClass="menuItem" text="Statistiques " />
+            <Button fx:id="comment" mnemonicParsing="false" onMouseClicked="#commentButton" prefHeight="50.0" prefWidth="150.0" style="-fx-text-fill: black;" styleClass="menuItem" text="Commentaires" />
          </children>
       </VBox>
       <TabPane fx:id="anchorPane" layoutX="130.0" layoutY="4.0" prefHeight="600.0" prefWidth="850.0" styleClass="mainFxmlClass" tabClosingPolicy="UNAVAILABLE">

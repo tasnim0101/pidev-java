@@ -3,30 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Maryem/Desktop/pidev/src/GUI/analyses.fxml</file>
-            <file>file:/C:/Users/Maryem/Desktop/pidev/src/Entity/labo.java</file>
-            <file>file:/C:/Users/Maryem/Desktop/pidev/src/Services/ServiceInterface.java</file>
-            <file>file:/C:/Users/Maryem/Desktop/pidev/src/Entity/analyse.java</file>
-            <file>file:/C:/Users/Maryem/Desktop/pidev/nbproject/jfx-impl.xml</file>
-            <file>file:/C:/Users/Maryem/Desktop/pidev/src/GUI/AnalysesController.java</file>
+            <file>file:/C:/Users/Maryem/Desktop/pidev/src/Services/commentService.java</file>
+            <file>file:/C:/Users/Maryem/Desktop/pidev/src/GUI/comment.fxml</file>
             <file>file:/C:/Users/Maryem/Desktop/pidev/src/GUI/Recherche_LaboController.java</file>
-            <file>file:/C:/Users/Maryem/Desktop/pidev/src/GUI/front.css</file>
-            <file>file:/C:/Users/Maryem/Desktop/pidev/src/GUI/front.fxml</file>
             <file>file:/C:/Users/Maryem/Desktop/pidev/src/GUI/FrontController.java</file>
             <file>file:/C:/Users/Maryem/Desktop/pidev/src/pidev/Pidev.java</file>
-            <file>file:/C:/Users/Maryem/Desktop/pidev/src/Services/ratingService.java</file>
-            <file>file:/C:/Users/Maryem/Desktop/pidev/src/GUI/LaboController.java</file>
             <file>file:/C:/Users/Maryem/Desktop/pidev/src/GUI/RatingController.java</file>
+            <file>file:/C:/Users/Maryem/Desktop/pidev/src/GUI/LaboController.java</file>
+            <file>file:/C:/Users/Maryem/Desktop/pidev/src/GUI/FrontCommentController.java</file>
+            <file>file:/C:/Users/Maryem/Desktop/pidev/src/GUI/StatController.java</file>
+            <file>file:/C:/Users/Maryem/Desktop/pidev/src/Services/replyService.java</file>
+            <file>file:/C:/Users/Maryem/Desktop/pidev/src/Entity/comment.java</file>
             <file>file:/C:/Users/Maryem/Desktop/pidev/src/GUI/AddAnalyseController.java</file>
-            <file>file:/C:/Users/Maryem/Desktop/pidev/src/GUI/labo.css</file>
-            <file>file:/C:/Users/Maryem/Desktop/pidev/src/GUI/home.css</file>
+            <file>file:/C:/Users/Maryem/Desktop/pidev/src/GUI/stat.css</file>
             <file>file:/C:/Users/Maryem/Desktop/pidev/src/Services/analyseService.java</file>
-            <file>file:/C:/Users/Maryem/Desktop/pidev/src/GUI/rating.css</file>
-            <file>file:/C:/Users/Maryem/Desktop/pidev/src/GUI/rating.fxml</file>
+            <file>file:/C:/Users/Maryem/Desktop/pidev/src/Entity/reply.java</file>
+            <file>file:/C:/Users/Maryem/Desktop/pidev/src/GUI/stat.fxml</file>
             <file>file:/C:/Users/Maryem/Desktop/pidev/src/Entity/rating.java</file>
-            <file>file:/C:/Users/Maryem/Desktop/pidev/src/GUI/HomeController.java</file>
-            <file>file:/C:/Users/Maryem/Desktop/pidev/src/Services/laboService.java</file>
             <file>file:/C:/Users/Maryem/Desktop/pidev/src/GUI/AddLaboController.java</file>
+            <file>file:/C:/Users/Maryem/Desktop/pidev/src/Services/laboService.java</file>
+            <file>file:/C:/Users/Maryem/Desktop/pidev/src/GUI/CommentController.java</file>
         </group>
     </open-files>
 </project-private>

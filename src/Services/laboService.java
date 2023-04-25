@@ -6,6 +6,7 @@
 package Services;
 
 import Entity.labo;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -31,6 +32,7 @@ public class laboService implements ServiceInterface<labo> {
 
     @Override
     public void ajouter(labo l) throws SQLException {
+    
         sql = "insert into labo(nom,bloc,mail,tel,img,med,average_rating) values (?,?,?,?,?,?,?)";
         PreparedStatement ste = cnx.prepareStatement(sql);
 
@@ -38,7 +40,7 @@ public class laboService implements ServiceInterface<labo> {
         ste.setString(2, l.getBloc());
         ste.setString(3, l.getMail());
         ste.setInt(4, l.getTel());
-        ste.setString(5, l.getImg());
+ste.setString(5, l.getImg());
         ste.setString(6, l.getMed());
         ste.setDouble(7, l.getAverage_rating());
         ste.executeUpdate();

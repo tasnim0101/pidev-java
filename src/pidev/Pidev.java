@@ -23,14 +23,15 @@ public class Pidev extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-      Parent root;
-      //  root = FXMLLoader.load(getClass().getResource("/GUI/home.fxml"));
-              root = FXMLLoader.load(getClass().getResource("/GUI/front.fxml"));
- 
+        Parent root;
+        //root = FXMLLoader.load(getClass().getResource("/GUI/home.fxml"));
+        //  root = FXMLLoader.load(getClass().getResource("/GUI/front.fxml"));
+         root = FXMLLoader.load(getClass().getResource("/GUI/FrontComment.fxml"));
+
         Scene scene = new Scene(root);
-        
+
         Stage stage = new Stage();
-        
+
         stage.setScene(scene);
         stage.show();
     }
@@ -40,7 +41,7 @@ public class Pidev extends Application {
      */
     public static void main(String[] args) {
         launch(args);
-      
+
     }
 
 }

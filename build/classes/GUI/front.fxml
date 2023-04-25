@@ -75,8 +75,8 @@
                   <ImageView fitHeight="40.0" fitWidth="50.0" layoutX="200.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </AnchorPane>
-            <Label fx:id="id_labo" layoutX="272.0" layoutY="22.0" text="Label" />
-            <Label fx:id="nbr" layoutX="403.0" layoutY="335.0" text="Label" />
+            <Label fx:id="id_labo" layoutX="272.0" layoutY="22.0" style="-fx-text-fill: transparent;" text="Label" />
+            <Label fx:id="nbr" layoutX="403.0" layoutY="335.0" text="0" />
          </children>
       </Pane>
    </children>

@@ -10,6 +10,9 @@ import Services.laboService;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -152,7 +155,7 @@ public class AddLaboController implements Initializable {
 
                 sl.ajouter(la);
 
-               Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
                 alert.setTitle("ERREUR");
                 alert.setHeaderText(null);
@@ -160,6 +163,7 @@ public class AddLaboController implements Initializable {
                 alert.showAndWait();
                 effacer();
             } else {
+
                 System.out.println("inserer donnee!!");
             }
         } catch (SQLException ex) {
@@ -197,7 +201,7 @@ public class AddLaboController implements Initializable {
     }
 
     @FXML
-    private void insertImage(MouseEvent event) {
+    private void insertImage(MouseEvent event) throws IOException {
 
         FileChooser open = new FileChooser();
 
@@ -207,14 +211,12 @@ public class AddLaboController implements Initializable {
 
         if (file != null) {
 
-            String path = file.getAbsolutePath();
+            String fileName = file.getName();
+            String targetPath = "C:/xampp/htdocs/img/" + fileName;
+            Files.copy(Paths.get(file.getAbsolutePath()), Paths.get(targetPath), StandardCopyOption.REPLACE_EXISTING);
 
-            path = path.replace("\\", "\\\\");
-
-            file_path.setText(path);
-
+            file_path.setText(fileName);
             Image image = new Image(file.toURI().toString(), 200, 200, false, true);
-
             imageView.setImage(image);
 
         } else {

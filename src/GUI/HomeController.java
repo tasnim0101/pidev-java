@@ -44,6 +44,10 @@ public class HomeController implements Initializable {
     private Tab consulter;
     @FXML
     private Button rating;
+    @FXML
+    private Button stat;
+    @FXML
+    private Button comment;
 
     /**
      * Initializes the controller class.
@@ -114,7 +118,7 @@ public class HomeController implements Initializable {
         AnchorPane fileRoot2 = fxmlLoader2.load();
         consulter.setContent(fileRoot2);
 
-        // Add the Tab to the TabPane
+        anchorPane.getTabs().clear();
         anchorPane.getTabs().add(ajouter);
         anchorPane.getTabs().add(consulter);
 
@@ -135,7 +139,7 @@ public class HomeController implements Initializable {
         AnchorPane fileRoot2 = fxmlLoader2.load();
         consulter.setContent(fileRoot2);
 
-        // Add the Tab to the TabPane
+        anchorPane.getTabs().clear();
         anchorPane.getTabs().add(ajouter);
         anchorPane.getTabs().add(consulter);
 
@@ -149,21 +153,57 @@ public class HomeController implements Initializable {
            try {
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/GUI/rating.fxml"));
         AnchorPane fileRoot1 = fxmlLoader1.load();
-        ajouter.setContent(fileRoot1);
 
-        FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/GUI/rating.fxml"));
-        AnchorPane fileRoot2 = fxmlLoader2.load();
-        consulter.setContent(fileRoot2);
+        Tab tab1 = new Tab("Rating");
+        tab1.setContent(fileRoot1);
 
-        // Add the Tab to the TabPane
-        anchorPane.getTabs().add(ajouter);
-        anchorPane.getTabs().add(consulter);
+        anchorPane.getTabs().clear();
+
+        anchorPane.getTabs().add(tab1);
 
     } catch (IOException e) {
         e.printStackTrace();
     }
         
     }
+
+    @FXML
+    private void statButton(MouseEvent event) {
+            try {
+        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/GUI/stat.fxml"));
+        AnchorPane fileRoot1 = fxmlLoader1.load();
+
+        Tab tab1 = new Tab("Statistiques");
+        tab1.setContent(fileRoot1);
+
+        anchorPane.getTabs().clear();
+
+        anchorPane.getTabs().add(tab1);
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    }
+
+    @FXML
+    private void commentButton(MouseEvent event) {
+            try {
+        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/GUI/comment.fxml"));
+        AnchorPane fileRoot1 = fxmlLoader1.load();
+
+        Tab tab1 = new Tab("Commentaires");
+        tab1.setContent(fileRoot1);
+
+        anchorPane.getTabs().clear();
+
+        anchorPane.getTabs().add(tab1);
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    }
+    
+    
 
 
 }
