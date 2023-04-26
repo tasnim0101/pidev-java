@@ -9,8 +9,13 @@ import Entity.analyse;
 import Entity.labo;
 import Services.analyseService;
 import Services.laboService;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.ByteMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import com.mysql.jdbc.Connection;
 import java.awt.Desktop;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -32,6 +37,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.SortedList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -53,10 +59,19 @@ import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.PixelWriter;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import javax.imageio.ImageIO;
 
 /**
  * FXML Controller class
@@ -82,8 +97,6 @@ public class AnalysesController implements Initializable {
     analyseService sa = new analyseService();
     @FXML
     private Label identifiant;
-    @FXML
-    private TableColumn<analyse, Integer> id_col;
     @FXML
     private TableColumn<analyse, String> resultat_col;
     @FXML
@@ -125,21 +138,22 @@ public class AnalysesController implements Initializable {
     private Button trierB;
     @FXML
     private Label choixT_label;
+    @FXML
+    private Button QRcodeB;
+    @FXML
+    private Label ouvrire;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         ObservableList<String> list_choix2 = FXCollections.observableArrayList("date",  "resultat", "prix");
+        ObservableList<String> list_choix2 = FXCollections.observableArrayList("date", "resultat", "prix");
         choix_tri.setItems(list_choix2);
-        
-        
+
         showAnalyse();
 
-        
-        
-         date_picker.valueProperty().addListener((observable, oldValue, newValue) -> {
+        date_picker.valueProperty().addListener((observable, oldValue, newValue) -> {
             date_string.setText(newValue.toString());
         });
         List<labo> labos = new ArrayList<labo>();
@@ -196,7 +210,6 @@ public class AnalysesController implements Initializable {
 
     public void showAnalyse() {
         ObservableList<analyse> list = getAnalyseList();
-        id_col.setCellValueFactory(new PropertyValueFactory<>("id"));
         date_col.setCellValueFactory(new PropertyValueFactory<>("date"));
         resultat_col.setCellValueFactory(new PropertyValueFactory<>("resultat"));
         pdf_col.setCellValueFactory(new PropertyValueFactory<>("image"));
@@ -384,58 +397,164 @@ public class AnalysesController implements Initializable {
 
     @FXML
     private void trier_analyse(MouseEvent event) {
-           SortedList<analyse> sortedList = new SortedList<>(analyseTable.getItems());
+        SortedList<analyse> sortedList = new SortedList<>(analyseTable.getItems());
 
-    if (!croiCheckBox.isSelected() && !decroiCheckBox.isSelected()) {
+        if (!croiCheckBox.isSelected() && !decroiCheckBox.isSelected()) {
+            analyseTable.setItems(sortedList);
+            return;
+        }
+
+        Comparator<analyse> comparator;
+        if (croiCheckBox.isSelected()) {
+            comparator = comparatorForCroi();
+        } else {
+            comparator = comparatorForDecroi();
+        }
+
+        sortedList.setComparator(comparator);
+
         analyseTable.setItems(sortedList);
-        return;
     }
 
-    Comparator<analyse> comparator;
-    if (croiCheckBox.isSelected()) {
-        comparator = comparatorForCroi();
-    } else {
-        comparator = comparatorForDecroi();
+    private Comparator<analyse> comparatorForCroi() {
+        String s = choixT_label.getText();
+        switch (s) {
+            case "date":
+                return Comparator.comparing(analyse::getDate);
+
+            case "resultat":
+                return Comparator.comparing(analyse::getResultat);
+
+            case "prix":
+                return Comparator.comparing(analyse::getPrix);
+            default:
+                throw new IllegalArgumentException("Unknown value for choix_tri: " + s);
+        }
     }
 
-    sortedList.setComparator(comparator);
+    private Comparator<analyse> comparatorForDecroi() {
+        String s = choixT_label.getText();
+        switch (s) {
+            case "date":
+                return Comparator.comparing(analyse::getDate).reversed();
 
-    analyseTable.setItems(sortedList);
+            case "resultat":
+                return Comparator.comparing(analyse::getResultat).reversed();
+
+            case "prix":
+                return Comparator.comparing(analyse::getPrix).reversed();
+
+            default:
+                throw new IllegalArgumentException("Unknown value for choix_tri: " + s);
+        }
     }
 
-  private Comparator<analyse> comparatorForCroi() {
-    String s = choixT_label.getText();
-    switch(s)
-    {
-        case "date":
-            return Comparator.comparing(analyse::getDate);
+    @FXML
+    private void generateQR(ActionEvent event) {
 
-        case "resultat":
-            return Comparator.comparing(analyse::getResultat);
+        boolean no = true, blo = true, mail = true, med = true, img = true;
 
-        case "prix":
-            return Comparator.comparing(analyse::getPrix);
-        default:
-            throw new IllegalArgumentException("Unknown value for choix_tri: " + s);
+        dateErreur.setText("");
+        resultatErreur.setText("");
+        pdfErreur.setText("");
+        prixErreur.setText("");
+        laboErreur.setText("");
+
+        if (resultat.getText().equals("") || !controleChaine(resultat.getText())) {
+            new animatefx.animation.Shake(resultat).play();
+            resultatErreur.setText("Resultat obligatoire");
+            no = false;
+        }
+
+        if (date_string.getText().equals("") || !controleChaine(date_string.getText())) {
+            new animatefx.animation.Shake(date_picker).play();
+            dateErreur.setText("Date obligatoire");
+            med = false;
+        }
+        if (prix.getText().equals("") || Integer.parseInt(prix.getText()) < 0) {
+            new animatefx.animation.Shake(prix).play();
+            prixErreur.setText("Prix obligatoire");
+            mail = false;
+        }
+        if (!pdf.getText().matches("^C.*\\.pdf$")) {
+            new animatefx.animation.Shake(pdf).play();
+            pdfErreur.setText("PDF obligatoire");
+            img = false;
+        }
+        if (laboratoire.getSelectionModel().getSelectedItem() == null) {
+            new animatefx.animation.Shake(laboratoire).play();
+            laboErreur.setText("Laboratoire obligatoire");
+            blo = false;
+        }
+
+        if (no && blo && mail && med && img) {
+
+            an.setId(Integer.parseInt(identifiant.getText()));
+            an.setDate(date_string.getText());
+            an.setResultat(resultat.getText());
+            an.setImage(pdf.getText());
+            an.setPrix(Integer.parseInt(prix.getText()));
+            an.setL(laboratoire.getValue());
+            try {
+                String text = " Resultat d'analyse : "+an.getResultat()+"\n Date d'analyse : "+an.getDate()+"\n Prix d'analyse : "+an.getPrix()+"";
+                        int width = 300;
+                int height = 300;
+
+                QRCodeWriter qrCodeWriter = new QRCodeWriter();
+                ByteMatrix byteMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, width, height);
+
+                WritableImage qrCodeImage = new WritableImage(width, height);
+                PixelWriter pixelWriter = qrCodeImage.getPixelWriter();
+
+                for (int x = 0; x < width; x++) {
+                    for (int y = 0; y < height; y++) {
+                        if (byteMatrix.get(x, y) == 0) {
+                            pixelWriter.setColor(x, y, Color.WHITE);
+                        } else {
+                            pixelWriter.setColor(x, y, Color.BLACK);
+                        }
+                    }
+                }
+
+                ImageView imageView = new ImageView(qrCodeImage);
+                Stage stage = new Stage();
+                Button downloadButton = new Button("Download");
+                downloadButton.setOnAction(downloadEvent -> {
+                    // prompt the user to choose a location to save the file
+                    FileChooser fileChooser = new FileChooser();
+                    fileChooser.getExtensionFilters().add(new ExtensionFilter("PNG files (*.png)", "*.png"));
+                    File file = fileChooser.showSaveDialog(stage);
+
+                    if (file != null) {
+                        // save the image as a PNG file
+                        try {
+                            BufferedImage bufferedImage = SwingFXUtils.fromFXImage(qrCodeImage, null);
+                            ImageIO.write(bufferedImage, "png", file);
+                        } catch (IOException ex) {
+                            Logger.getLogger(QRcodeController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                });
+
+                VBox hbox = new VBox(imageView, downloadButton);
+                hbox.setSpacing(10);
+
+                Scene scene = new Scene(new StackPane(hbox), width, height);
+                
+                stage.setScene(scene);
+                stage.show();
+            } catch (WriterException ex) {
+                Logger.getLogger(QRcodeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+            alert.setTitle("ERREUR");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez vérifier vos informations!");
+            alert.showAndWait();
+
+        }
     }
-}
-
-private Comparator<analyse> comparatorForDecroi() {
-    String s = choixT_label.getText();
-    switch(s)
-    {
-        case "date":
-            return Comparator.comparing(analyse::getDate).reversed();
-
-        case "resultat":
-            return Comparator.comparing(analyse::getResultat).reversed();
-
-        case "prix":
-            return Comparator.comparing(analyse::getPrix).reversed();
-
-        default:
-            throw new IllegalArgumentException("Unknown value for choix_tri: " + s);
-    }
-}
 
 }

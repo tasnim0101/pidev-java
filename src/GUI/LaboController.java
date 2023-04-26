@@ -230,7 +230,6 @@ public class LaboController implements Initializable {
 
     public void showLabo() {
         ObservableList<labo> list = getLaboList();
-        id_col.setCellValueFactory(new PropertyValueFactory<>("id"));
         nom_col.setCellValueFactory(new PropertyValueFactory<>("nom"));
         bloc_col.setCellValueFactory(new PropertyValueFactory<>("bloc"));
         email_col.setCellValueFactory(new PropertyValueFactory<>("mail"));
@@ -252,13 +251,13 @@ public class LaboController implements Initializable {
 
         if (file != null) {
 
-          String fileName = file.getName();
-String targetPath = "C:/xampp/htdocs/img/" + fileName;
-Files.copy(Paths.get(file.getAbsolutePath()), Paths.get(targetPath), StandardCopyOption.REPLACE_EXISTING);
+            String fileName = file.getName();
+            String targetPath = "C:/xampp/htdocs/img/" + fileName;
+            Files.copy(Paths.get(file.getAbsolutePath()), Paths.get(targetPath), StandardCopyOption.REPLACE_EXISTING);
 
-file_path.setText(fileName);
-        Image image = new Image(file.toURI().toString(), 200, 200, false, true);
-        imageView.setImage(image);
+            file_path.setText(fileName);
+            Image image = new Image(file.toURI().toString(), 200, 200, false, true);
+            imageView.setImage(image);
 
         } else {
 
@@ -359,12 +358,12 @@ file_path.setText(fileName);
         medecin.setText(l.getMed());
         file_path.setText(l.getImg());
         telephone.setText("" + l.getTel());
-        
-String picture = "http://localhost/img/" + l.getImg();
-    System.out.println(picture);
-    Image image = new Image(picture, 110, 110, false, true);
 
-    imageView.setImage(image);
+        String picture = "http://localhost/img/" + l.getImg();
+        System.out.println(picture);
+        Image image = new Image(picture, 110, 110, false, true);
+
+        imageView.setImage(image);
 
         imageView.setImage(image);
 

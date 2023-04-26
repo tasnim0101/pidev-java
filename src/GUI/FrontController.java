@@ -19,10 +19,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -35,6 +41,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -222,8 +229,10 @@ public class FrontController implements Initializable {
         mail_labo.setText(labo.getMail());
         tel_labo.setText(String.valueOf(labo.getTel()));
         med_labo.setText(labo.getMed());
-        String picture = "file:" + labo.getImg();
-        Image image = new Image(picture, 110, 110, false, true);
+               
+String picture = "http://localhost/img/" + labo.getImg();
+    System.out.println(picture);
+    Image image = new Image(picture, 110, 110, false, true);
         img_labo.setImage(image);
 
         List<analyse> list_analyse = sa.analyses_labo(labo.getId());
@@ -313,4 +322,19 @@ public class FrontController implements Initializable {
 
     }
 
-}
+    @FXML
+    private void comment(ActionEvent event) {
+        
+     try {
+            Parent addStudentParent = FXMLLoader.load(getClass().getResource("/GUI/FrontComment.fxml"));
+            Scene addStudentScene = new Scene(addStudentParent);
+            Stage newStage = new Stage();
+            newStage.setScene(addStudentScene);
+            newStage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(LaboController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    }
+
+

@@ -26,6 +26,10 @@ private List<reply> r;
 
     public replyService rr = new replyService() ;
 
+    public comment() {
+
+    }
+
 
     public List<reply> getR() {
         return r;

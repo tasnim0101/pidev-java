@@ -18,12 +18,11 @@
    <children>
       <TableView fx:id="laboTable" layoutX="13.0" layoutY="324.0" onMouseClicked="#MouseAction" prefHeight="200.0" prefWidth="818.0" styleClass="mainFxmlClass">
          <columns>
-            <TableColumn fx:id="id_col" prefWidth="75.0" text="Id" />
-            <TableColumn fx:id="nom_col" prefWidth="127.99996185302734" text="Nom" />
-            <TableColumn fx:id="bloc_col" prefWidth="107.20001220703125" text="Bloc" />
-            <TableColumn fx:id="email_col" minWidth="0.0" prefWidth="174.39999389648438" text="E-mail" />
-            <TableColumn fx:id="tel_col" prefWidth="144.79998779296875" text="Telephone" />
-            <TableColumn fx:id="med_col" prefWidth="171.19989013671875" text="Medecin" />
+            <TableColumn fx:id="nom_col" prefWidth="155.99997234344482" text="Nom" />
+            <TableColumn fx:id="bloc_col" prefWidth="111.19999694824219" text="Bloc" />
+            <TableColumn fx:id="email_col" minWidth="0.0" prefWidth="212.0" text="E-mail" />
+            <TableColumn fx:id="tel_col" prefWidth="154.4000244140625" text="Telephone" />
+            <TableColumn fx:id="med_col" prefWidth="184.0" text="Medecin" />
          </columns>
       </TableView>
       <Label layoutX="159.0" layoutY="14.0" prefHeight="36.0" prefWidth="240.0" text="Laboratoire " textFill="#3195d7">
@@ -49,7 +48,7 @@
          <font>
             <Font size="8.0" />
          </font></Button>
-      <Label fx:id="identifiant" layoutX="44.0" layoutY="117.0" prefHeight="36.0" prefWidth="182.0" styleClass="mainFxmlClass" text="identifiant" textFill="#b4afaf" />
+      <Label fx:id="identifiant" layoutX="44.0" layoutY="117.0" prefHeight="36.0" prefWidth="182.0" style="-fx-text-fill: transparent;" text="identifiant" textFill="#b4afaf" />
       <Label fx:id="erreur" layoutX="99.0" layoutY="87.0" prefHeight="19.0" prefWidth="233.0" textAlignment="CENTER" textFill="#ff1010" />
       <Label fx:id="clearNom" layoutX="499.0" layoutY="120.0" onMouseClicked="#CleaNom" prefHeight="26.0" prefWidth="24.0" styleClass="clear-button" text="X" textAlignment="CENTER" />
       <Label fx:id="clearMail" layoutX="499.0" layoutY="187.0" onMouseClicked="#CleaMail" prefHeight="26.0" prefWidth="24.0" styleClass="clear-button" text="X" textAlignment="CENTER" />
