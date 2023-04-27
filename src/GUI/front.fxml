@@ -10,14 +10,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="850.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FrontController">
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FrontController">
     <stylesheets>
         <URL value="@front.css" />
     </stylesheets>
    <children>
       
-      <Pagination fx:id="pagination" layoutX="13.0" layoutY="6.0" prefHeight="592.0" prefWidth="830.0" />
-      <Pane fx:id="affichagePane" layoutX="35.0" layoutY="21.0" prefHeight="528.0" prefWidth="790.0">
+      <Pagination fx:id="pagination" layoutX="13.0" layoutY="6.0" prefHeight="675.0" prefWidth="878.0" />
+      <Pane fx:id="affichagePane" layoutX="35.0" layoutY="21.0" prefHeight="662.0" prefWidth="838.0">
          <children>
             <Label layoutX="16.0" layoutY="74.0" prefHeight="38.0" prefWidth="132.0" style="-fx-font-size: 23; -fx-text-fill: linear-gradient(to bottom right, #3a4f93, #a43189);" styleClass="mainFxmlClass" text="Nom :" textAlignment="CENTER" textFill="#3195d7">
                <font>
@@ -77,7 +77,8 @@
             </AnchorPane>
             <Label fx:id="id_labo" layoutX="272.0" layoutY="22.0" style="-fx-text-fill: transparent;" text="Label" />
             <Label fx:id="nbr" layoutX="403.0" layoutY="335.0" text="0" />
-            <Button layoutX="497.0" layoutY="306.0" mnemonicParsing="false" onAction="#comment" prefHeight="31.0" prefWidth="174.0" styleClass="insert-button-V" text="laisser commentaire " />
+            <Button layoutX="497.0" layoutY="306.0" mnemonicParsing="false" onAction="#comment" prefHeight="34.0" prefWidth="107.0" styleClass="insert-button-V" text="Commenter" />
+            <Button fx:id="localB" layoutX="619.0" layoutY="306.0" mnemonicParsing="false" onMouseClicked="#showLocalisation" styleClass="insert-button-V" text="Localisation" />
          </children>
       </Pane>
    </children>

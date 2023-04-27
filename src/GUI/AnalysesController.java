@@ -36,6 +36,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -142,7 +143,10 @@ public class AnalysesController implements Initializable {
     private Button QRcodeB;
     @FXML
     private Label ouvrire;
-
+    @FXML
+    private TextField searchField;
+ 
+   
     /**
      * Initializes the controller class.
      */
@@ -152,7 +156,7 @@ public class AnalysesController implements Initializable {
         choix_tri.setItems(list_choix2);
 
         showAnalyse();
-
+rechercherAvance();
         date_picker.valueProperty().addListener((observable, oldValue, newValue) -> {
             date_string.setText(newValue.toString());
         });
@@ -174,6 +178,9 @@ public class AnalysesController implements Initializable {
         });
 
     }
+    
+    
+   
 
     public Connection getConnection() {
         Connection conn;
@@ -556,5 +563,37 @@ public class AnalysesController implements Initializable {
 
         }
     }
+      public void rechercherAvance() {
+    ObservableList<analyse> list = getAnalyseList();
+    date_col.setCellValueFactory(new PropertyValueFactory<>("date"));
+    resultat_col.setCellValueFactory(new PropertyValueFactory<>("resultat"));
+    pdf_col.setCellValueFactory(new PropertyValueFactory<>("image"));
+    prix_col.setCellValueFactory(new PropertyValueFactory<>("prix"));
+    labo_col.setCellValueFactory(cellData -> {
+        labo la = cellData.getValue().getL();
+        return new SimpleStringProperty(la.getNom());
+    });
+    analyseTable.setItems(list);
+    FilteredList<analyse> search = new FilteredList<>(list, b -> true);
+    searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+        search.setPredicate(analyse -> {
+            if (newValue.isEmpty() || newValue == null) {
+                return true;
+            }
+            String lowerCaseFilter = newValue.toLowerCase();
+            if (analyse.getResultat().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                return true;
+            } else if (String.valueOf(analyse.getPrix()).toLowerCase().contains(lowerCaseFilter)) {
+                return true;
+            } else if (analyse.getDate().toLowerCase().contains(lowerCaseFilter)) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+    });
+    analyseTable.setItems(search);
+}
+   
 
 }

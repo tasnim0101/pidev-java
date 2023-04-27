@@ -77,7 +77,8 @@
             </AnchorPane>
             <Label fx:id="id_labo" layoutX="272.0" layoutY="22.0" style="-fx-text-fill: transparent;" text="Label" />
             <Label fx:id="nbr" layoutX="403.0" layoutY="335.0" text="0" />
-            <Button layoutX="497.0" layoutY="306.0" mnemonicParsing="false" onAction="#comment" prefHeight="31.0" prefWidth="174.0" styleClass="insert-button-V" text="laisser commentaire " />
+            <Button layoutX="497.0" layoutY="306.0" mnemonicParsing="false" onAction="#comment" prefHeight="34.0" prefWidth="107.0" styleClass="insert-button-V" text="Commenter" />
+            <Button fx:id="localB" layoutX="619.0" layoutY="306.0" mnemonicParsing="false" onMouseClicked="#showLocalisation" styleClass="insert-button-V" text="Localisation" />
          </children>
       </Pane>
    </children>

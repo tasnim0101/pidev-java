@@ -22,15 +22,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.MessageFormat;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -38,10 +35,16 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
-import javax.swing.JTable;
+import javafx.stage.Stage;
+
+
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+
 
 /**
  * FXML Controller class
@@ -54,8 +57,7 @@ public class Recherche_LaboController implements Initializable {
     private ComboBox<String> choix;
     @FXML
     private TableView<labo> laboTable;
-    @FXML
-    private TableColumn<labo, Integer> id_col;
+   
     @FXML
     private TableColumn<labo, String> nom_col;
     @FXML
@@ -102,7 +104,6 @@ public class Recherche_LaboController implements Initializable {
 
     public void showLabo() {
         ObservableList<labo> list = getLaboList();
-        id_col.setCellValueFactory(new PropertyValueFactory<>("id"));
         nom_col.setCellValueFactory(new PropertyValueFactory<>("nom"));
         bloc_col.setCellValueFactory(new PropertyValueFactory<>("bloc"));
         email_col.setCellValueFactory(new PropertyValueFactory<>("mail"));
@@ -122,7 +123,7 @@ public class Recherche_LaboController implements Initializable {
     @FXML
     private void rechercher_labo(MouseEvent event) {
         ObservableList<labo> laboList = choix();
-        id_col.setCellValueFactory(new PropertyValueFactory<>("id"));
+      
         nom_col.setCellValueFactory(new PropertyValueFactory<>("nom"));
         bloc_col.setCellValueFactory(new PropertyValueFactory<>("bloc"));
         email_col.setCellValueFactory(new PropertyValueFactory<>("mail"));
@@ -226,6 +227,43 @@ public class Recherche_LaboController implements Initializable {
     @FXML
     private void telecharger_excel(MouseEvent event) {
 
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Exporter les produits");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichier Excel (.xlsx)", ".xlsx"));
+        Stage stage = (Stage) excelB.getScene().getWindow();
+        File file = fileChooser.showSaveDialog(stage);
+        if (file != null) {
+            try (FileOutputStream outputStream = new FileOutputStream(file)) {
+                if (!file.exists()) {
+                    file.createNewFile();
+                }
+                XSSFWorkbook workbook = new XSSFWorkbook();
+                XSSFSheet sheet = workbook.createSheet("Laboratoires");
+                XSSFRow headerRow = sheet.createRow(0);
+                headerRow.createCell(0).setCellValue("Nom");
+                headerRow.createCell(1).setCellValue("Bloc");
+                headerRow.createCell(2).setCellValue("Medecin");
+                headerRow.createCell(3).setCellValue("Mail");
+                headerRow.createCell(4).setCellValue("Tel");
+
+                ObservableList<labo> produit = getLaboList();
+
+                for (int i = 0; i < produit.size(); i++) {
+                    labo a = produit.get(i);
+                    XSSFRow row = sheet.createRow(i + 1);
+                    row.createCell(0).setCellValue(a.getNom());
+                    row.createCell(1).setCellValue(a.getBloc());
+                    row.createCell(2).setCellValue(a.getMed());
+                    row.createCell(3).setCellValue(a.getMail());
+                    row.createCell(4).setCellValue(a.getTel());
+                }
+
+                workbook.write(outputStream);
+                workbook.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }

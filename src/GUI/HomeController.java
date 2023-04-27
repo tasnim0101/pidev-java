@@ -48,6 +48,8 @@ public class HomeController implements Initializable {
     private Button stat;
     @FXML
     private Button comment;
+    @FXML
+    private Button local;
 
     /**
      * Initializes the controller class.
@@ -189,6 +191,24 @@ public class HomeController implements Initializable {
     private void commentButton(MouseEvent event) {
             try {
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/GUI/comment.fxml"));
+        AnchorPane fileRoot1 = fxmlLoader1.load();
+
+        Tab tab1 = new Tab("Commentaires");
+        tab1.setContent(fileRoot1);
+
+        anchorPane.getTabs().clear();
+
+        anchorPane.getTabs().add(tab1);
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    }
+
+    @FXML
+    private void localButton(MouseEvent event) {
+               try {
+        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/GUI/local.fxml"));
         AnchorPane fileRoot1 = fxmlLoader1.load();
 
         Tab tab1 = new Tab("Commentaires");

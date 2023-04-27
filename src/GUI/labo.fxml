@@ -55,6 +55,6 @@
       <Label fx:id="clearMed" layoutX="499.0" layoutY="256.0" onMouseClicked="#ClearMed" prefHeight="26.0" prefWidth="24.0" styleClass="clear-button" text="X" textAlignment="CENTER" />
       <Label fx:id="clearBloc" layoutX="238.0" layoutY="187.0" onMouseClicked="#ClearBloc" prefHeight="26.0" prefWidth="24.0" styleClass="clear-button" text="X" textAlignment="CENTER" />
       <Label fx:id="clearTel" layoutX="238.0" layoutY="257.0" onMouseClicked="#CleaTel" prefHeight="26.0" prefWidth="24.0" styleClass="clear-button" text="X" textAlignment="CENTER" />
-      <Button fx:id="rechercher_imprimer" layoutX="693.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#page_rechercher" styleClass="mainFxmlClass" text="rechercher/pdf" />
+      <Button fx:id="rechercher_imprimer" layoutX="46.0" layoutY="119.0" mnemonicParsing="false" onMouseClicked="#page_rechercher" prefHeight="34.0" prefWidth="188.0" styleClass="mainFxmlClass" text="Rechercher/PDF/Excel" />
    </children>
 </AnchorPane>

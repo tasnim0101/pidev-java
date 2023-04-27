@@ -7,10 +7,13 @@ package GUI;
 
 import Entity.analyse;
 import Entity.labo;
+import Entity.local;
 import Entity.rating;
 import Services.analyseService;
 import Services.laboService;
+import Services.localService;
 import Services.ratingService;
+import static com.itextpdf.text.pdf.PdfName.LOCATION;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
@@ -41,6 +44,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
 /**
@@ -100,6 +106,8 @@ public class FrontController implements Initializable {
     ratingService rs = new ratingService();
     @FXML
     private Label nbr;
+    @FXML
+    private Button localB;
 
     /**
      * Initializes the controller class.
@@ -121,8 +129,9 @@ public class FrontController implements Initializable {
 
     public void showstar() {
 
-        Image starEmpty = new Image("file:\\C:\\Users\\Maryem\\Desktop\\pidev\\images\\star0.png");
-        Image starFilled = new Image("file:\\C:\\Users\\Maryem\\Desktop\\pidev\\images\\star1.png");
+        Image starEmpty = new Image("file:\\C:\\Users\\Maryem\\Desktop\\pidevJAVAFX\\images\\star0.png");
+        Image starFilled = new Image("file:\\C:\\Users\\Maryem\\Desktop\\pidevJAVAFX\\images\\star1.png");
+        
 
         for (int i = 0; i < num; i++) {
             ImageView starImageView = createImageView(starEmpty, i * taille, 0, Pos.CENTER);
@@ -152,8 +161,8 @@ public class FrontController implements Initializable {
     private void handleStarClick(MouseEvent event) {
         int nbstar = 0;
 
-        Image starEmpty = new Image("file:\\C:\\Users\\Maryem\\Desktop\\pidev\\images\\star0.png");
-        Image starFilled = new Image("file:\\C:\\Users\\Maryem\\Desktop\\pidev\\images\\star1.png");
+        Image starEmpty = new Image("file:\\C:\\Users\\Maryem\\Desktop\\pidevJAVAFX\\images\\star0.png");
+        Image starFilled = new Image("file:\\C:\\Users\\Maryem\\Desktop\\pidevJAVAFX\\images\\star1.png");
         ImageView clickedStarImageView = (ImageView) event.getSource();
         boolean isFilled = clickedStarImageView.getImage().equals(starEmpty);
         for (int i = 0; i < num; i++) {
@@ -184,7 +193,7 @@ public class FrontController implements Initializable {
     @FXML
     private void rateButton(MouseEvent event) throws SQLException {
 
-        Image starFilled = new Image("file:\\C:\\Users\\Maryem\\Desktop\\pidev\\images\\star1.png");
+        Image starFilled = new Image("file:\\C:\\Users\\Maryem\\Desktop\\pidevJAVAFX\\images\\star1.png");
 
         int nbstar = Integer.parseInt(nbr.getText());
 
@@ -194,12 +203,18 @@ public class FrontController implements Initializable {
 
         rating l = new rating(nbstar, la);
         rs.ajouter(l);
+Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+                alert.setTitle("ERREUR");
+                alert.setHeaderText(null);
+                alert.setContentText("Merci pour votre note !!");
+                alert.showAndWait();
 
         resetStars();
     }
 
     private void resetStars() {
-        Image starEmpty = new Image("file:\\C:\\Users\\Maryem\\Desktop\\pidev\\images\\star0.png");
+        Image starEmpty = new Image("file:\\C:\\Users\\Maryem\\Desktop\\pidevJAVAFX\\images\\star0.png");
 
         for (int i = 0; i < num; i++) {
             starImageViews[i].setImage(starEmpty);
@@ -334,6 +349,46 @@ String picture = "http://localhost/img/" + labo.getImg();
         } catch (IOException ex) {
             Logger.getLogger(LaboController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    
+    localService ls = new localService();
+         private final String OSM_API = "https://www.openstreetmap.org/export/embed.html?bbox=";
+     
+    @FXML
+    private void showLocalisation(MouseEvent event) {
+             int id = Integer.parseInt(id_labo.getText());
+        local a = ls.id_local(id);
+if(a!=null){
+             final String LOCATION = a.getLocal(); // replace with your actual location
+
+        WebView webView = new WebView();
+        WebEngine webEngine = webView.getEngine();
+        String[] locationParts = LOCATION.split(",");
+        double lon = Double.parseDouble(locationParts[0]);
+        double lat = Double.parseDouble(locationParts[1]);
+        double bboxSize = 0.001; // adjust this value to change the zoom level
+
+String url = OSM_API + (lon - bboxSize) + "," + (lat - bboxSize) + "," + (lon + bboxSize) + "," + (lat + bboxSize) + "&marker=" + lat + "," + lon;
+        webEngine.load(url);
+
+        StackPane root = new StackPane(webView);
+        Scene scene = new Scene(root, 800, 600);
+
+        Stage stage = new Stage();
+        stage.setTitle("Map Example");
+        stage.setScene(scene);
+        stage.show();
+}else{
+ Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+                alert.setTitle("ERREUR");
+                alert.setHeaderText(null);
+                alert.setContentText("Localisation n'existe pas!");
+                alert.showAndWait();
+
+}
+        
     }
     }
 
