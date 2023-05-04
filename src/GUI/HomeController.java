@@ -33,197 +33,80 @@ import javafx.stage.Stage;
 public class HomeController implements Initializable {
 
     @FXML
-    private Button analyse;
-    @FXML
-    private Button laboratoire;
-    @FXML
     private TabPane anchorPane;
-    @FXML
-    private Tab ajouter;
-    @FXML
-    private Tab consulter;
-    @FXML
-    private Button rating;
-    @FXML
-    private Button stat;
-    @FXML
-    private Button comment;
-    @FXML
-    private Button local;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }
+       try {
+//analyses
+            FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/GUI/addAnalyse.fxml"));
+            AnchorPane fileRoot1 = fxmlLoader1.load();
+            Tab tab1 = new Tab("Ajouter Analyse");
+            tab1.setContent(fileRoot1);
 
-    private void ajouter_labo(ActionEvent event) {
-        try {
-            Parent addStudentParent = FXMLLoader.load(getClass().getResource("/GUI/addLabo.fxml"));
-            Scene addStudentScene = new Scene(addStudentParent);
-            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            currentStage.setScene(addStudentScene);
-            currentStage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(LaboController.class.getName()).log(Level.SEVERE, null, ex);
+            FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/GUI/analyses.fxml"));
+            AnchorPane fileRoot2 = fxmlLoader2.load();
+            Tab tab2 = new Tab("Consulter Analyse");
+            tab2.setContent(fileRoot2);
+
+            //labo
+            FXMLLoader fxmlLoader3 = new FXMLLoader(getClass().getResource("/GUI/addLabo.fxml"));
+            AnchorPane fileRoot3 = fxmlLoader3.load();
+            Tab tab3 = new Tab("Ajouter Labo");
+            tab3.setContent(fileRoot3);
+
+            FXMLLoader fxmlLoader4 = new FXMLLoader(getClass().getResource("/GUI/labo.fxml"));
+            AnchorPane fileRoot4 = fxmlLoader4.load();
+            Tab tab4 = new Tab("Consulter Labo");
+            tab4.setContent(fileRoot4);
+
+            //rating
+            FXMLLoader fxmlLoader5 = new FXMLLoader(getClass().getResource("/GUI/rating.fxml"));
+            AnchorPane fileRoot5 = fxmlLoader5.load();
+
+            Tab tab5 = new Tab("Rating");
+            tab5.setContent(fileRoot5);
+
+            //stat
+            FXMLLoader fxmlLoader6 = new FXMLLoader(getClass().getResource("/GUI/stat.fxml"));
+            AnchorPane fileRoot6 = fxmlLoader6.load();
+
+            Tab tab6 = new Tab("Statistiques");
+            tab6.setContent(fileRoot6);
+
+            //commentaire 
+            FXMLLoader fxmlLoader7 = new FXMLLoader(getClass().getResource("/GUI/comment.fxml"));
+            AnchorPane fileRoot7 = fxmlLoader7.load();
+
+            Tab tab7 = new Tab("Commentaires");
+            tab7.setContent(fileRoot7);
+
+            //local
+            FXMLLoader fxmlLoader8 = new FXMLLoader(getClass().getResource("/GUI/local.fxml"));
+            AnchorPane fileRoot8 = fxmlLoader8.load();
+
+            Tab tab8 = new Tab("Localiser");
+            tab8.setContent(fileRoot8);
+
+            anchorPane.getTabs().clear();
+
+            anchorPane.getTabs().add(tab1);
+            anchorPane.getTabs().add(tab2);
+            anchorPane.getTabs().add(tab3);
+            anchorPane.getTabs().add(tab4);
+            anchorPane.getTabs().add(tab5);
+            anchorPane.getTabs().add(tab6);
+            anchorPane.getTabs().add(tab7);
+            anchorPane.getTabs().add(tab8);
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    private void consulter_labo(ActionEvent event) {
-        try {
-            Parent addStudentParent = FXMLLoader.load(getClass().getResource("/GUI/labo.fxml"));
-            Scene addStudentScene = new Scene(addStudentParent);
-            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            currentStage.setScene(addStudentScene);
-            currentStage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(LaboController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    private void ajouter_analyse(ActionEvent event) {
-        try {
-            Parent addStudentParent = FXMLLoader.load(getClass().getResource("/GUI/addAnalyse.fxml"));
-            Scene addStudentScene = new Scene(addStudentParent);
-            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            currentStage.setScene(addStudentScene);
-            currentStage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(LaboController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    private void consulter_analyse(ActionEvent event) {
-        try {
-            Parent addStudentParent = FXMLLoader.load(getClass().getResource("/GUI/analyses.fxml"));
-            Scene addStudentScene = new Scene(addStudentParent);
-            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            currentStage.setScene(addStudentScene);
-            currentStage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(LaboController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
-    @FXML
-    private void analyseButton(MouseEvent event) {
-
-    try {
-        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/GUI/addAnalyse.fxml"));
-        AnchorPane fileRoot1 = fxmlLoader1.load();
-        ajouter.setContent(fileRoot1);
-
-        FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/GUI/analyses.fxml"));
-        AnchorPane fileRoot2 = fxmlLoader2.load();
-        consulter.setContent(fileRoot2);
-
-        anchorPane.getTabs().clear();
-        anchorPane.getTabs().add(ajouter);
-        anchorPane.getTabs().add(consulter);
-
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-    }
-
-    @FXML
-    private void laboratoireButton(MouseEvent event) {
-        
-         try {
-        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/GUI/addLabo.fxml"));
-        AnchorPane fileRoot1 = fxmlLoader1.load();
-        ajouter.setContent(fileRoot1);
-
-        FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/GUI/labo.fxml"));
-        AnchorPane fileRoot2 = fxmlLoader2.load();
-        consulter.setContent(fileRoot2);
-
-        anchorPane.getTabs().clear();
-        anchorPane.getTabs().add(ajouter);
-        anchorPane.getTabs().add(consulter);
-
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-    }
-
-    @FXML
-    private void ratingButton(MouseEvent event) {
-           try {
-        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/GUI/rating.fxml"));
-        AnchorPane fileRoot1 = fxmlLoader1.load();
-
-        Tab tab1 = new Tab("Rating");
-        tab1.setContent(fileRoot1);
-
-        anchorPane.getTabs().clear();
-
-        anchorPane.getTabs().add(tab1);
-
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-        
-    }
-
-    @FXML
-    private void statButton(MouseEvent event) {
-            try {
-        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/GUI/stat.fxml"));
-        AnchorPane fileRoot1 = fxmlLoader1.load();
-
-        Tab tab1 = new Tab("Statistiques");
-        tab1.setContent(fileRoot1);
-
-        anchorPane.getTabs().clear();
-
-        anchorPane.getTabs().add(tab1);
-
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-    }
-
-    @FXML
-    private void commentButton(MouseEvent event) {
-            try {
-        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/GUI/comment.fxml"));
-        AnchorPane fileRoot1 = fxmlLoader1.load();
-
-        Tab tab1 = new Tab("Commentaires");
-        tab1.setContent(fileRoot1);
-
-        anchorPane.getTabs().clear();
-
-        anchorPane.getTabs().add(tab1);
-
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-    }
-
-    @FXML
-    private void localButton(MouseEvent event) {
-               try {
-        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/GUI/local.fxml"));
-        AnchorPane fileRoot1 = fxmlLoader1.load();
-
-        Tab tab1 = new Tab("Commentaires");
-        tab1.setContent(fileRoot1);
-
-        anchorPane.getTabs().clear();
-
-        anchorPane.getTabs().add(tab1);
-
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-    }
-    
-    
-
+ 
 
 }

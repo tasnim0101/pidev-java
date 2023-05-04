@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.BackController">
+    <stylesheets>
+        <URL value="@back.css" />
+    </stylesheets>
+   <children>
+      <VBox layoutX="2.0" layoutY="6.0" prefHeight="694.0" prefWidth="255.0">
+         <children>
+            <Label prefHeight="186.0" prefWidth="262.0" text="HOME :" />
+            <Button fx:id="analyse" mnemonicParsing="false" onMouseClicked="#analyseButton" prefHeight="88.0" prefWidth="255.0" style="-fx-text-fill: black;" styleClass="menuItem" text="Gestion Laboratoire " />
+            <Button fx:id="service" mnemonicParsing="false" onMouseClicked="#serviceButton" prefHeight="85.0" prefWidth="255.0" style="-fx-text-fill: black;" styleClass="menuItem" text="Gestion Service" />
+            <Button fx:id="medecin" mnemonicParsing="false" onMouseClicked="#medecinButton" prefHeight="83.0" prefWidth="255.0" style="-fx-text-fill: black;" styleClass="menuItem" text="Gestion Medecin" />
+         </children>
+      </VBox>
+      <TabPane fx:id="anchorPane" layoutX="251.0" layoutY="7.0" prefHeight="688.0" prefWidth="1343.0" tabClosingPolicy="UNAVAILABLE" />
+   </children>
+</AnchorPane>

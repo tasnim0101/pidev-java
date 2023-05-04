@@ -1,0 +1,123 @@
+s<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@Assets/style_back.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox layoutX="14.0" layoutY="14.0" prefHeight="367.0" prefWidth="179.0" />
+      <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="652.0" prefWidth="237.0" styleClass="login-card" stylesheets="@../../../../../PIrim/UserItegration/src/GUI/design.css">
+         <children>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+               <children>
+                  <ImageView fx:id="ImgAdmin" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Assets/326335793_579093554089411_4846379196831664352_n.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="TxtNomAdmin" alignment="CENTER" promptText="Bienvenue">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="264.0" spacing="15.0" stylesheets="@../../../../../PIrim/UserItegration/src/GUI/design.css">
+               <children>
+                  <ImageView fitHeight="58.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Assets/8931783.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="27.0" prefWidth="143.0" text="Users" textFill="#967171">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <styleClass>
+                  <String fx:value="selected" />
+                  <String fx:value="selected-border" />
+               </styleClass>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="314.0" spacing="15.0" styleClass="selected" stylesheets="@../../../../../PIrim/UserItegration/src/GUI/design.css">
+               <children>
+                  <ImageView fitHeight="58.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Assets/2252184.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lab_velo_dash" onMouseClicked="" prefHeight="27.0" prefWidth="143.0" text="Services" textFill="#363232">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="314.0" spacing="15.0" styleClass="selected" stylesheets="@../../../../../PIrim/UserItegration/src/GUI/design.css">
+               <children>
+                  <ImageView fitHeight="58.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Assets/docteur.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lab_station_dash" onMouseClicked="" prefHeight="27.0" prefWidth="143.0" text="Medecins" textFill="#282727">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="314.0" spacing="15.0" styleClass="selected" stylesheets="@../../../../../PIrim/UserItegration/src/GUI/design.css">
+               <children>
+                  <ImageView fitHeight="58.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Assets/250181.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lab_event_dash" onMouseClicked="" prefHeight="27.0" prefWidth="143.0" text="Laboratoires" textFill="#363333">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="314.0" spacing="15.0" styleClass="selected" stylesheets="@../../../../../PIrim/UserItegration/src/GUI/design.css">
+               <children>
+                  <ImageView fitHeight="58.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Assets/9645341.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lab_rec_dash" onMouseClicked="" prefHeight="27.0" prefWidth="143.0" text="Evenements" textFill="#2c2a2a">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="314.0" spacing="15.0" styleClass="selected" stylesheets="@../../../../../PIrim/UserItegration/src/GUI/design.css">
+               <children>
+                  <ImageView fitHeight="58.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Assets/1556328.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lab_station_dash1" onMouseClicked="" prefHeight="27.0" prefWidth="143.0" text="Materiels" textFill="#282727">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

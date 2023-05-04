@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="659.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.gui.DashboardController">
+   <children>
+      <VBox prefHeight="788.0" prefWidth="127.0">
+         <children>
+            <Label prefHeight="117.0" prefWidth="153.0" text="Dashboard Admin" />
+            <Button fx:id="Gservice" mnemonicParsing="false" onAction="#Gservice" prefHeight="111.0" prefWidth="135.0" text="Gestion Service " />
+            <Button fx:id="Glabo" mnemonicParsing="false" onAction="#Glabo" prefHeight="92.0" prefWidth="132.0" text="Gestion Laboratoire" />
+            <Button fx:id="Gmedecin" mnemonicParsing="false" onAction="#Gmedecin" prefHeight="94.0" prefWidth="128.0" text="gestion Medecin" />
+         </children>
+      </VBox>
+      <TabPane fx:id="AffichageAdmin" layoutX="127.0" layoutY="74.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Untitled Tab 1" />
+          <Tab text="Untitled Tab 2" />
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,18 @@
+/* Background */
+#AnchorPane {
+    -fx-background-color: #F5F5F5; /* couleur de fond */
+}
+
+
+/* Buttons */
+.button {
+    -fx-background-color: #7FC4FD; /* light blue */
+    -fx-text-fill: #FFFFFF; /* white text */
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-padding: 10 20;
+}
+
+.button:hover {
+    -fx-background-color: #3F9FFF; /* darker blue */
+}

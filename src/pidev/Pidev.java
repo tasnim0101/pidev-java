@@ -24,11 +24,10 @@ public class Pidev extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root;
-           //    root = FXMLLoader.load(getClass().getResource("/GUI/map.fxml"));
+           //root = FXMLLoader.load(getClass().getResource("/GUI/home.fxml"));
 
-              // root = FXMLLoader.load(getClass().getResource("/GUI/home.fxml"));
-       root = FXMLLoader.load(getClass().getResource("/GUI/front.fxml"));
-
+        root = FXMLLoader.load(getClass().getResource("/GUI/clienttt.fxml"));
+       // root = FXMLLoader.load(getClass().getResource("/GUI/front.fxml"));
         Scene scene = new Scene(root);
 
         Stage stage = new Stage();

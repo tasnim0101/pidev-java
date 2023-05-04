@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@Assets/style.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="tn.esprit.gui.DashboardAdminController">
+   <children>
+      <Button layoutX="61.0" layoutY="96.0" mnemonicParsing="false" onAction="#clic_serv" prefHeight="29.0" prefWidth="164.0" text="Gestion Service" />
+      <Button layoutX="61.0" layoutY="190.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="164.0" text="Gestion Medecin" />
+      <Button layoutX="322.0" layoutY="96.0" mnemonicParsing="false" onAction="#clic_hosp" prefHeight="29.0" prefWidth="177.0" text="Gestion Hospitalisation" />
+      <Button layoutX="321.0" layoutY="190.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="177.0" text="Gestion Laboratoires" />
+      <Button layoutX="61.0" layoutY="283.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="164.0" text="Gestion Evenements" />
+      <Button layoutX="316.0" layoutY="283.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="177.0" text="Gestion Materiel" />
+      <Button layoutX="99.0" layoutY="22.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="356.0" text="BIENVENUE CHER ADMIN " />
+   </children>
+</AnchorPane>

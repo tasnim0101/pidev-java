@@ -100,3 +100,9 @@
     -fx-background-color:linear-gradient(to bottom right, #3a4f93, #a43189);
     -fx-text-fill: white;
 }
+
+
+.tree-cell{
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+}
