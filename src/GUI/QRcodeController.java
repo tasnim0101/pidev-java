@@ -62,53 +62,43 @@ public class QRcodeController implements Initializable {
 
    @FXML
 private void generate(ActionEvent event) {
-    try {
+    String text = "https://example.com";
+    int width = 300;
+    int height = 300;
+    QRCodeWriter qrCodeWriter = new QRCodeWriter();
+    //  ByteMatrix byteMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, width, height);
+    WritableImage qrCodeImage = new WritableImage(width, height);
+    PixelWriter pixelWriter = qrCodeImage.getPixelWriter();
+    /* for (int x = 0; x < width; x++) {
+    for (int y = 0; y < height; y++) {
+    if (byteMatrix.get(x, y) == 0) {
+    pixelWriter.setColor(x, y, Color.WHITE);
+    } else {
+    pixelWriter.setColor(x, y, Color.BLACK);
+    }
+    }
+    }*/
+    
+    // set the QR code image in the ImageView
+    imageView.setImage(qrCodeImage);
+    // enable the download button
+    download.setDisable(false);
+    download.setOnAction(downloadEvent -> {
+        // prompt the user to choose a location to save the file
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new ExtensionFilter("PNG files (*.png)", "*.png"));
+        File file = fileChooser.showSaveDialog(imageView.getScene().getWindow());
         
-        String text = "https://example.com"; 
-        int width = 300; 
-        int height = 300; 
-
-        QRCodeWriter qrCodeWriter = new QRCodeWriter();
-        ByteMatrix byteMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, width, height);
-
-        WritableImage qrCodeImage = new WritableImage(width, height);
-        PixelWriter pixelWriter = qrCodeImage.getPixelWriter();
-
-        for (int x = 0; x < width; x++) {
-            for (int y = 0; y < height; y++) {
-                if (byteMatrix.get(x, y) == 0) {
-                    pixelWriter.setColor(x, y, Color.WHITE);
-                } else {
-                    pixelWriter.setColor(x, y, Color.BLACK);
-                }
+        if (file != null) {
+            // save the image as a PNG file
+            try {
+                BufferedImage bufferedImage = SwingFXUtils.fromFXImage(qrCodeImage, null);
+                ImageIO.write(bufferedImage, "png", file);
+            } catch (IOException ex) {
+                Logger.getLogger(QRcodeController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
-        // set the QR code image in the ImageView
-        imageView.setImage(qrCodeImage);
-
-        // enable the download button
-        download.setDisable(false);
-        download.setOnAction(downloadEvent -> {
-            // prompt the user to choose a location to save the file
-            FileChooser fileChooser = new FileChooser();
-            fileChooser.getExtensionFilters().add(new ExtensionFilter("PNG files (*.png)", "*.png"));
-            File file = fileChooser.showSaveDialog(imageView.getScene().getWindow());
-
-            if (file != null) {
-                // save the image as a PNG file
-                try {
-                    BufferedImage bufferedImage = SwingFXUtils.fromFXImage(qrCodeImage, null);
-                    ImageIO.write(bufferedImage, "png", file);
-                } catch (IOException ex) {
-                    Logger.getLogger(QRcodeController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        });
-
-    } catch (WriterException ex) {
-        Logger.getLogger(QRcodeController.class.getName()).log(Level.SEVERE, null, ex);
-    }
+    });
 }
  
 }

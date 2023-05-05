@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.BackController">
+<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.BackController">
     <stylesheets>
         <URL value="@back.css" />
     </stylesheets>
@@ -18,8 +18,11 @@
             <Button fx:id="analyse" mnemonicParsing="false" onMouseClicked="#analyseButton" prefHeight="88.0" prefWidth="255.0" style="-fx-text-fill: black;" styleClass="menuItem" text="Gestion Laboratoire " />
             <Button fx:id="service" mnemonicParsing="false" onMouseClicked="#serviceButton" prefHeight="85.0" prefWidth="255.0" style="-fx-text-fill: black;" styleClass="menuItem" text="Gestion Service" />
             <Button fx:id="medecin" mnemonicParsing="false" onMouseClicked="#medecinButton" prefHeight="83.0" prefWidth="255.0" style="-fx-text-fill: black;" styleClass="menuItem" text="Gestion Medecin" />
+            <Button mnemonicParsing="false" onMouseClicked="#user" prefHeight="86.0" prefWidth="261.0" text="Gestion User" />
+            <Button mnemonicParsing="false" onMouseClicked="#materiel" prefHeight="87.0" prefWidth="267.0" text="Gestion Materiel" />
+            <Button mnemonicParsing="false" onMouseClicked="#event" prefHeight="87.0" prefWidth="255.0" text="Gestion Event " />
          </children>
       </VBox>
-      <TabPane fx:id="anchorPane" layoutX="251.0" layoutY="7.0" prefHeight="688.0" prefWidth="1343.0" tabClosingPolicy="UNAVAILABLE" />
+      <TabPane fx:id="anchorPane" layoutX="251.0" layoutY="7.0" prefHeight="900.0" prefWidth="1372.0" tabClosingPolicy="UNAVAILABLE" />
    </children>
 </AnchorPane>

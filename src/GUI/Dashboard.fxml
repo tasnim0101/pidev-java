@@ -15,6 +15,9 @@
             <Button fx:id="Gservice" mnemonicParsing="false" onAction="#Gservice" prefHeight="111.0" prefWidth="135.0" text="Gestion Service " />
             <Button fx:id="Glabo" mnemonicParsing="false" onAction="#Glabo" prefHeight="92.0" prefWidth="132.0" text="Gestion Laboratoire" />
             <Button fx:id="Gmedecin" mnemonicParsing="false" onAction="#Gmedecin" prefHeight="94.0" prefWidth="128.0" text="gestion Medecin" />
+            <Button fx:id="Gmateriel" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" onAction="#Gmedecin" prefHeight="94.0" prefWidth="128.0" text="gestion Materiel" />
+            <Button fx:id="Guser" layoutX="10.0" layoutY="425.0" mnemonicParsing="false" onAction="#Gmedecin" prefHeight="94.0" prefWidth="128.0" text="gestion User" />
+            <Button fx:id="Gevent" layoutX="10.0" layoutY="520.0" mnemonicParsing="false" onAction="#Gmedecin" prefHeight="94.0" prefWidth="128.0" text="gestion Evenement" />
          </children>
       </VBox>
       <TabPane fx:id="AffichageAdmin" layoutX="127.0" layoutY="74.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">

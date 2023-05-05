@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #e9dee6;" stylesheets="@../Assets/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.User.LoggedInClientController">
+
+   <children>
+       
+      
+      
+       <ImageView fitHeight="722.0" fitWidth="986.0" layoutX="197.0" layoutY="33.0" pickOnBounds="true" smooth="false" y="-1.0">
+               <image>
+                  <Image url="@../image/AFFICHE.png" />
+               </image>
+            </ImageView>
+      <AnchorPane prefHeight="800.0" prefWidth="162.0" style="-fx-background-color: #5CE1E6;">
+         <children>
+      
+            <Button fx:id="button_logout" layoutX="26.0" layoutY="20.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="109.0" style="-fx-background-color: BLACK; -fx-text-fill: white;" text="Logout" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Button>
+      
+                  <Button layoutX="8.0" layoutY="74.0" mnemonicParsing="false" onAction="#toupdatescene" prefHeight="38.0" prefWidth="146.0" style="-fx-background-color: BLACK; -fx-text-fill: white;" text="Mettre à jour votre profil" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Button>
+         </children>
+      </AnchorPane>
+     
+     
+   </children>
+</AnchorPane>

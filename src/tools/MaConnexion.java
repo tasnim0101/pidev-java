@@ -15,7 +15,7 @@ import java.sql.SQLException;
  */
 public class MaConnexion {
     private Connection cnx;
-    public static final String url ="jdbc:mysql://localhost:3306/integration";
+    public static final String url ="jdbc:mysql://localhost:3306/sauvieintegration";
     public static  String user ="root";
     public static final String pwd ="";
     public static MaConnexion ct;

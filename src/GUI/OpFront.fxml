@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1200.0" stylesheets="@Assets/style_back.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.gui.OpFrontController">
+<AnchorPane id="AnchorPane" pprefHeight="500.0" prefWidth="800.0"  xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.gui.OpFrontController">
    <children>
       <TableView fx:id="table_op" layoutX="7.0" layoutY="100.0" prefHeight="200.0" prefWidth="966.0" stylesheets="@Assets/style_back.css">
          <columns>
@@ -31,4 +32,8 @@
       </Text>
       <Button layoutX="410.0" layoutY="322.0" mnemonicParsing="false" onMouseClicked="#statistique" text="Statistiques" />
    </children>
+   <stylesheets>
+      <URL value="@Assets/style_back.css" />
+      <URL value="@Assets/style.css" />
+   </stylesheets>
 </AnchorPane>

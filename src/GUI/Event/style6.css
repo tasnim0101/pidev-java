@@ -1,0 +1,17 @@
+
+#AnchorPane {
+  -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #5c5c5c, #454545);
+}
+
+#consultereve, #consulterdon {
+  -fx-background-color: #f0ad4e;
+  -fx-text-fill: #ffffff;
+  -fx-font-size: 18px;
+  -fx-pref-width: 200px;
+  -fx-pref-height: 50px;
+  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+#consultereve:hover, #consulterdon:hover {
+  -fx-background-color: #e28b3c;
+}

@@ -18,7 +18,7 @@ import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
-import org.controlsfx.control.Notifications;
+//import org.controlsfx.control.Notifications;
 import Entity.Medecin;
 import Entity.Operations;
 import tools.MaConnexion;
@@ -88,7 +88,7 @@ public void ajouter(Operations o) {
    } 
 }*/
 
- public void showNotification(String title, String message) {
+/* public void showNotification(String title, String message) {
         Notifications notificationsBuilder = Notifications.create()
                 .title(title)
                 .text(message)
@@ -102,7 +102,7 @@ public void ajouter(Operations o) {
 
         notificationsBuilder.show();
     }
-
+*/
 
 @Override
 public void ajouter(Operations o){

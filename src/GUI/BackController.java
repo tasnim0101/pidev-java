@@ -140,9 +140,8 @@ public class BackController implements Initializable {
 
     @FXML
     private void medecinButton(MouseEvent event) throws IOException {
-      
-        
-         try {
+
+        try {
 //medecin ajout modifier supprimer
             FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/GUI/InterfaceajouterMedcin.fxml"));
             AnchorPane fileRoot1 = fxmlLoader1.load();
@@ -162,8 +161,70 @@ public class BackController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
-        
+
     }
 
+    @FXML
+    private void user(MouseEvent event) throws IOException {
+        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/GUI/User/LoggedIn.fxml"));
+            AnchorPane fileRoot1 = fxmlLoader1.load();
+            Tab tab1 = new Tab(" PROFIL");
+            tab1.setContent(fileRoot1);
+            anchorPane.getTabs().clear();
+ anchorPane.getTabs().add(tab1);
+    }
+
+    @FXML
+    private void materiel(MouseEvent event) {
+
+        try {
+            FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/GUI/Materiel/AddFournisseur.fxml"));
+            AnchorPane fileRoot1 = fxmlLoader1.load();
+            Tab tab1 = new Tab(" Ajouter Fournisseur");
+            tab1.setContent(fileRoot1);
+            FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/GUI/Materiel/AddMateriel.fxml"));
+            AnchorPane fileRoot2 = fxmlLoader2.load();
+            Tab tab2 = new Tab("Ajouter Materiel");
+            tab2.setContent(fileRoot2);
+            FXMLLoader fxmlLoader3 = new FXMLLoader(getClass().getResource("/GUI/Materiel/affichageMateriel.fxml"));
+            AnchorPane fileRoot3 = fxmlLoader3.load();
+            Tab tab3 = new Tab("Affichage materiels");
+            tab3.setContent(fileRoot3);
+            FXMLLoader fxmlLoader4 = new FXMLLoader(getClass().getResource("/GUI/Materiel/AffichageFournisseur.fxml"));
+            AnchorPane fileRoot4 = fxmlLoader4.load();
+            Tab tab4 = new Tab("Affichage Fournisseurs");
+            tab4.setContent(fileRoot4);
+
+            anchorPane.getTabs().clear();
+
+            anchorPane.getTabs().add(tab1);
+            anchorPane.getTabs().add(tab2);
+           anchorPane.getTabs().add(tab3);
+            anchorPane.getTabs().add(tab4);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    private void event(MouseEvent event) throws IOException {
+         try { FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/GUI/Event/AfficherEvent.fxml"));
+            AnchorPane fileRoot1 = fxmlLoader1.load();
+            Tab tab1 = new Tab(" Afficher event");
+            tab1.setContent(fileRoot1);
+            FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/GUI/Event/AfficherDon.fxml"));
+            AnchorPane fileRoot2 = fxmlLoader2.load();
+            Tab tab2 = new Tab("Afficher Don");
+            tab2.setContent(fileRoot2);
+             anchorPane.getTabs().clear();
+
+            anchorPane.getTabs().add(tab1);
+            anchorPane.getTabs().add(tab2);
+    
+  } catch (IOException e) {
+            e.printStackTrace();
+        }
+}
 }

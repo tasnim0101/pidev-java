@@ -1,63 +1,31 @@
-.login-card {
-    background-color: #f8f8f8;
-    padding: 10px;
-    border-radius: 5px;
+/* Light blue background */
+.root {
+  -fx-background-color: #ADD8E6;
 }
 
-#ImgAdmin {
-    -fx-border-radius: 50%;
-    -fx-border-color: #ccc;
-    -fx-border-width: 2px;
+/* Big black font */
+.root * {
+  -fx-font-size: 20px;
+  -fx-text-fill: black;
 }
 
-#lab_velo_dash:hover {
-    -fx-background-color: #f8f8f8;
-    -fx-text-fill: #1e1d1d;
+/* Rounded edges */
+.root {
+  -fx-background-radius: 20px;
 }
 
-.selected {
-    -fx-background-color: #1e1d1d;
-    -fx-text-fill: #f8f8f8;
-}
-
-.selected-border {
-    -fx-border-color: #f8f8f8;
-    -fx-border-width: 2px;
-}
-#AnchorPane {
-    -fx-background-color: #ADD8E6;
-}
-.vbox {
-  background-color: transparent;
-}
-.vbox button {
-  background-color: #8dc1e2;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-}
-.vbox {
-  background-color: #ADD8E6;
-}
-
-.hbox {
-  background-color: #ADD8E6;
-}
-
-
-
-/* Buttons */
+/* Dark blue buttons */
 .button {
-    -fx-background-color: #7FC4FD; /* light blue */
-    -fx-text-fill: #FFFFFF; /* white text */
-    -fx-font-weight: bold;
-    -fx-background-radius: 20;
-    -fx-padding: 10 20;
+  -fx-background-color: #000080;
+  -fx-text-fill: white;
 }
 
-.button:hover {
-    -fx-background-color: #3F9FFF; /* darker blue */
+/* Light violet HBox */
+.hbox {
+  -fx-background-color: #E6E6FA;
+}
+
+/* White VBox */
+.vbox {
+  -fx-background-color: white;
 }

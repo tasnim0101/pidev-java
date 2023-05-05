@@ -5,6 +5,7 @@
  */
 package Entity;
 
+import User.entities.User;
 import java.sql.Date;
 
 /**
@@ -16,6 +17,24 @@ public class Hospitalisation {
     private int id;
     private int id_hospitalisation;
     Services S ;
+    User u;
+
+    public Hospitalisation(Date date_entree, Date date_sortie, int id, int id_hospitalisation, Services S, User u) {
+        this.date_entree = date_entree;
+        this.date_sortie = date_sortie;
+        this.id = id;
+        this.id_hospitalisation = id_hospitalisation;
+        this.S = S;
+        this.u = u;
+    }
+
+    public User getU() {
+        return u;
+    }
+
+    public void setU(User u) {
+        this.u = u;
+    }
     
 
     public Hospitalisation() {
@@ -91,5 +110,6 @@ public class Hospitalisation {
         return "Hospitalisation{" + "date_entree=" + date_entree + ", date_sortie=" + date_sortie + ", id=" + id + ", id_hospitalisation=" + id_hospitalisation + ", S=" + S + '}';
     }
 
+    
    
 }

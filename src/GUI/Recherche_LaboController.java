@@ -93,7 +93,7 @@ public class Recherche_LaboController implements Initializable {
     public Connection getConnection() {
         Connection conn;
         try {
-            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/desktop", "root", "");
+            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/sauvieintegration", "root", "");
             return conn;
         } catch (SQLException ex) {
             System.out.println("ERROR: " + ex.getMessage());

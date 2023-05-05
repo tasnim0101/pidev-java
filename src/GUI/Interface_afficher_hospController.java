@@ -29,6 +29,7 @@ import Entity.Hospitalisation;
 import Entity.Services;
 import Services.GestionHospitalisation;
 import Services.GestionService;
+import Services.User.ServiceUser;
 
 /**
  * FXML Controller class
@@ -47,7 +48,8 @@ public class Interface_afficher_hospController implements Initializable {
     private Button RefreshButton;
     @FXML
     private Button delete;
-    
+     @FXML
+    private TableColumn<Hospitalisation, Integer> user;
     @FXML
     private TableColumn<Hospitalisation, Integer> id_hospitalisation;
     @FXML
@@ -57,6 +59,8 @@ public class Interface_afficher_hospController implements Initializable {
         Hospitalisation h = new Hospitalisation();
         Services s = new Services();
         GestionService gs = new GestionService();
+        ServiceUser su = new ServiceUser();
+   
 
     /**
      * Initializes the controller class.
@@ -68,6 +72,7 @@ public class Interface_afficher_hospController implements Initializable {
         date_sortie.setCellValueFactory(new PropertyValueFactory<>("date_sortie"));
         date_entree.setCellValueFactory(new PropertyValueFactory<>("date_entree"));
         id_hospitalisation.setCellValueFactory(new PropertyValueFactory<>("id_hospitalisation"));
+           user.setCellValueFactory(new PropertyValueFactory<>("u"));
           Thosp.setItems(afficherListeHospitalisation());
     }    
     
@@ -124,7 +129,6 @@ gh.supprimer(selectedhosp);
                 stage.show();
     }
 
-    @FXML
     private void retour(ActionEvent event) throws IOException {
             Parent root = FXMLLoader.load(getClass().getResource("DashboardAdmin.fxml"));
                 Scene scene = new Scene(root);

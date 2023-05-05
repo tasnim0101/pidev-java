@@ -185,7 +185,7 @@ rechercherAvance();
     public Connection getConnection() {
         Connection conn;
         try {
-            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/desktop", "root", "");
+            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/sauvieintegration", "root", "");
             return conn;
         } catch (SQLException ex) {
             System.out.println("ERROR: " + ex.getMessage());
@@ -502,57 +502,47 @@ rechercherAvance();
             an.setImage(pdf.getText());
             an.setPrix(Integer.parseInt(prix.getText()));
             an.setL(laboratoire.getValue());
-            try {
-                String text = " Resultat d'analyse : "+an.getResultat()+"\n Date d'analyse : "+an.getDate()+"\n Prix d'analyse : "+an.getPrix()+"";
-                        int width = 300;
-                int height = 300;
-
-                QRCodeWriter qrCodeWriter = new QRCodeWriter();
-                ByteMatrix byteMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, width, height);
-
-                WritableImage qrCodeImage = new WritableImage(width, height);
-                PixelWriter pixelWriter = qrCodeImage.getPixelWriter();
-
-                for (int x = 0; x < width; x++) {
-                    for (int y = 0; y < height; y++) {
-                        if (byteMatrix.get(x, y) == 0) {
-                            pixelWriter.setColor(x, y, Color.WHITE);
-                        } else {
-                            pixelWriter.setColor(x, y, Color.BLACK);
-                        }
+            String text = " Resultat d'analyse : "+an.getResultat()+"\n Date d'analyse : "+an.getDate()+"\n Prix d'analyse : "+an.getPrix()+"";
+            int width = 300;
+            int height = 300;
+            QRCodeWriter qrCodeWriter = new QRCodeWriter();
+            //  ByteMatrix byteMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, width, height);
+            WritableImage qrCodeImage = new WritableImage(width, height);
+            PixelWriter pixelWriter = qrCodeImage.getPixelWriter();
+            /* for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+            if (byteMatrix.get(x, y) == 0) {
+            pixelWriter.setColor(x, y, Color.WHITE);
+            } else {
+            pixelWriter.setColor(x, y, Color.BLACK);
+            }
+            }
+            }*/
+            
+            ImageView imageView = new ImageView(qrCodeImage);
+            Stage stage = new Stage();
+            Button downloadButton = new Button("Download");
+            downloadButton.setOnAction(downloadEvent -> {
+                // prompt the user to choose a location to save the file
+                FileChooser fileChooser = new FileChooser();
+                fileChooser.getExtensionFilters().add(new ExtensionFilter("PNG files (*.png)", "*.png"));
+                File file = fileChooser.showSaveDialog(stage);
+                
+                if (file != null) {
+                    // save the image as a PNG file
+                    try {
+                        BufferedImage bufferedImage = SwingFXUtils.fromFXImage(qrCodeImage, null);
+                        ImageIO.write(bufferedImage, "png", file);
+                    } catch (IOException ex) {
+                        Logger.getLogger(QRcodeController.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-
-                ImageView imageView = new ImageView(qrCodeImage);
-                Stage stage = new Stage();
-                Button downloadButton = new Button("Download");
-                downloadButton.setOnAction(downloadEvent -> {
-                    // prompt the user to choose a location to save the file
-                    FileChooser fileChooser = new FileChooser();
-                    fileChooser.getExtensionFilters().add(new ExtensionFilter("PNG files (*.png)", "*.png"));
-                    File file = fileChooser.showSaveDialog(stage);
-
-                    if (file != null) {
-                        // save the image as a PNG file
-                        try {
-                            BufferedImage bufferedImage = SwingFXUtils.fromFXImage(qrCodeImage, null);
-                            ImageIO.write(bufferedImage, "png", file);
-                        } catch (IOException ex) {
-                            Logger.getLogger(QRcodeController.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                });
-
-                VBox hbox = new VBox(imageView, downloadButton);
-                hbox.setSpacing(10);
-
-                Scene scene = new Scene(new StackPane(hbox), width, height);
-                
-                stage.setScene(scene);
-                stage.show();
-            } catch (WriterException ex) {
-                Logger.getLogger(QRcodeController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            });
+            VBox hbox = new VBox(imageView, downloadButton);
+            hbox.setSpacing(10);
+            Scene scene = new Scene(new StackPane(hbox), width, height);
+            stage.setScene(scene);
+            stage.show();
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
 

@@ -19,6 +19,12 @@ public class DashboardController implements Initializable {
     private Button Glabo;
     @FXML
     private Button Gmedecin;
+     @FXML
+    private Button Gmateriel;
+      @FXML
+    private Button Guser;
+       @FXML
+    private Button Gevent;
     @FXML
     private TabPane AffichageAdmin;
 

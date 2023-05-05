@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0"  stylesheets="@../Assets/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Materiel.AffichageFournisseurController">
+     <children>
+      <TableView fx:id="CategorieETv" layoutX="73.0" layoutY="163.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="422.0" prefWidth="330.0" style="-fx-background-color: 120;" AnchorPane.rightAnchor="874.0" AnchorPane.topAnchor="163.0">
+        <columns>
+          <TableColumn fx:id="nomTv" prefWidth="183.0" text="Nom" />
+           <TableColumn fx:id="delete" prefWidth="146.0" text="Action" />
+            
+            
+           
+        </columns>
+      </TableView>
+      
+      <Button fx:id="btnCategEAdd" contentDisplay="CENTER" layoutX="55.0" layoutY="96.0" mnemonicParsing="false" onAction="#GoToAddCategE" prefHeight="20.0" prefWidth="109.0" style="-fx-background-color: #454B1B;" text="Ajouter" textFill="#f5f2f2" textOverrun="CENTER_ELLIPSIS">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/add.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="Bell MT" size="15.0" />
+         </font>
+      </Button>
+     
+      <TextField fx:id="eventSearch" layoutX="182.0" layoutY="98.0" promptText="Rechercher...">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+      </TextField>
+   
+     
+     
+      <HBox fx:id="" prefHeight="88.0" prefWidth="1277.0" style="-fx-background-color: #393d3f;">
+         <children>
+            <ImageView fitHeight="80.0" fitWidth="97.0" pickOnBounds="true" rotate="1.3" smooth="false">
+               <image>
+                  <Image url="@logoequipe.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="3.0" left="8.0" right="5.0" top="5.0" />
+               </HBox.margin>
+               <effect>
+                  <Glow />
+               </effect>
+            </ImageView>
+            <Button fx:id="EventBt" contentDisplay="CENTER" mnemonicParsing="false" onAction="#GoToEvents" prefHeight="20.0" prefWidth="109.0" style="-fx-background-color: #454B1B;" text="Liste Materiel" textFill="#f5f2f2" textOverrun="CENTER_ELLIPSIS">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/add.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Bell MT" size="15.0" />
+               </font>
+            </Button>
+           
+           
+           
+         </children>
+      </HBox>
+      <Button fx:id="menu" layoutX="868.0" layoutY="151.0" mnemonicParsing="false" onAction="#menuback" text="Menu" />
+   </children>
+</AnchorPane>

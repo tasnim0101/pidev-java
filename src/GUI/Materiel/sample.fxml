@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0"  styleClass="dark-background" stylesheets="@../Assets/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Materiel.SampleController">
+   <top>
+      <HBox prefHeight="129.0" prefWidth="1309.0" style="-fx-background-color: #5CE1E6;" styleClass="border-bottom" stylesheets="@style.css" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="126.0" prefWidth="99.0" style="-fx-background-color: #5CE1E6;">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icons8_user_menu_male_24px_2.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Pane prefHeight="126.0" prefWidth="79.0" style="-fx-background-color: #5CE1E6;" />
+            <HBox alignment="CENTER" prefHeight="126.0" prefWidth="135.0" style="-fx-background-color: #5CE1E6;">
+               <children>
+                  <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icons8_donate_80px_4.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="126.0" prefWidth="135.0" style="-fx-background-color: #5CE1E6;">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icons8_google_alerts_64px.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="126.0" prefWidth="160.0" style="-fx-background-color: #5CE1E6;">
+               <children>
+                  <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icons8_meeting_100px.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="126.0" prefWidth="185.0" style="-fx-background-color: #5CE1E6;">
+               <children>
+                  <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icons8_event_accepted_64px_1.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="126.0" prefWidth="154.0" style="-fx-background-color: #5CE1E6;">
+               <children>
+                  <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icons8_complaint_80px.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Pane prefHeight="126.0" prefWidth="79.0" style="-fx-background-color: #5CE1E6;" />
+            <HBox alignment="CENTER" prefHeight="126.0" prefWidth="101.0" style="-fx-background-color: #5CE1E6;">
+               <children>
+                  <ImageView fitHeight="60.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icons8_search_32px_2.png" />
+                     </image>
+                  </ImageView>
+                  <Label contentDisplay="RIGHT" prefHeight="18.0" prefWidth="71.0" style="-fx-text-fill: #000000;" text="Search" textFill="#676767">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #5CE1E6;">
+               <children>
+                  <VBox prefHeight="100.0" prefWidth="176.0" style="-fx-background-color: #5CE1E6;">
+                     <children>
+                        <Label prefHeight="49.0" prefWidth="143.0" style="-fx-text-fill: #000000;" text="Materiel" textFill="#676767">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="NbEvents" prefHeight="50.0" prefWidth="143.0" style="-fx-text-fill: #000000;" text="25 Don" textFill="#676767">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #5CE1E6;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="menu" layoutX="890.0" layoutY="38.0" mnemonicParsing="false" onAction="#menufront" text="Menu" />
+                     </children></Pane>
+               </children>
+               <opaqueInsets>
+                  <Insets left="30.0" right="30.0" />
+               </opaqueInsets>
+            </HBox>
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" styleClass="dark-background" stylesheets="@style.css" VBox.vgrow="ALWAYS">
+               <content>
+                  <GridPane fx:id="citiesGrid" styleClass="dark-background" stylesheets="@style.css">
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

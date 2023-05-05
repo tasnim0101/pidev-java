@@ -23,6 +23,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import Entity.Hospitalisation;
 import Entity.Services;
+import User.entities.User;
 import tools.MaConnexion;
 import javax.mail.PasswordAuthentication;
 
@@ -43,12 +44,14 @@ public class GestionHospitalisation implements IGestionHospital<Hospitalisation>
 
 @Override
 public void ajouter(Hospitalisation h) throws SQLException {
-    String sql = "INSERT INTO hospitalisation (date_entree, date_sortie, id_hospitalisation, service_id)VALUES(?,?,?,?)";
+    String sql = "INSERT INTO hospitalisation (date_entree, date_sortie, id_hospitalisation, service_id,user)VALUES(?,?,?,?,?)";
     PreparedStatement statement = cnx.prepareStatement(sql);
     statement.setDate(1, new java.sql.Date(h.getDate_entree().getTime()));
     statement.setDate(2, new java.sql.Date(h.getDate_sortie().getTime()));
     statement.setInt(3, h.getId_hospitalisation());
     statement.setInt(4, h.getS().getId());
+    statement.setInt(5, h.getU().getId());
+    
     statement.executeUpdate();
     System.out.println("Hospitalisation ajoutée !");
 }
@@ -58,13 +61,14 @@ public void ajouter(Hospitalisation h) throws SQLException {
 
     
 
-   @Override
+@Override
 public List<Hospitalisation> afficher() {
     List<Hospitalisation> hospitalisation = new ArrayList<>();
     try {
-        sql = "SELECT h.id, h.date_entree, h.date_sortie, h.id_hospitalisation, s.id AS service_id, s.type AS type\n" +
-"FROM hospitalisation h\n" +
-"INNER JOIN services s ON h.service_id = s.id";
+        sql = "SELECT h.id, h.date_entree, h.date_sortie, h.id_hospitalisation, s.id AS service_id, s.type AS type, u.id AS user\n" +
+              "FROM hospitalisation h\n" +
+              "INNER JOIN services s ON h.service_id = s.id\n" +
+              "INNER JOIN users u ON h.user = u.id";
         Statement ste = cnx.createStatement();
         ResultSet rs = ste.executeQuery(sql);
         while (rs.next()) {
@@ -77,6 +81,10 @@ public List<Hospitalisation> afficher() {
             service.setId(rs.getInt("service_id"));
             service.setType(rs.getString("type"));
             hos.setS(service);
+            User user = new User();
+            user.setId(rs.getInt("user"));
+            
+            hos.setU(user);
             hospitalisation.add(hos);
         }
         System.out.println("Liste des hospitalisations :");
@@ -85,6 +93,7 @@ public List<Hospitalisation> afficher() {
     }
     return hospitalisation;
 }
+
 
 
     @Override

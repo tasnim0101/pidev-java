@@ -13,6 +13,7 @@
 <AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FrontController">
     <stylesheets>
         <URL value="@front.css" />
+      <URL value="@Assets/style.css" />
     </stylesheets>
    <children>
       

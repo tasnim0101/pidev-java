@@ -1,0 +1,23 @@
+#AnchorPane {
+    -fx-background-color: linear-gradient(#667eea, #764ba2);
+}
+#table {
+    -fx-background-color: white;
+}
+
+#colClient, #colNumCmd, #colMntCmd {
+    -fx-alignment: center;
+}
+
+#rechercherDon {
+    -fx-prompt-text-fill: #777;
+}
+
+.button {
+    -fx-background-color: #3f51b5;
+    -fx-text-fill: white;
+}
+
+.button:hover {
+    -fx-background-color: #303f9f;
+}

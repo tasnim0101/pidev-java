@@ -1,0 +1,31 @@
+
+#AnchorPane {
+    -fx-background-color: #1E1E1E;
+}
+
+Label {
+    -fx-text-fill: #FFFFFF;
+}
+
+TextField {
+    -fx-background-color: #2B2B2B;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+}
+
+Button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+}
+
+Button:hover {
+    -fx-background-color: #2E7D32;
+}
+
+ChoiceBox {
+    -fx-background-color: #2B2B2B;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+}
+

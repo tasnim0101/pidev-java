@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.User.BackController">
+   <children>
+      <Button fx:id="materielback" layoutX="259.0" layoutY="175.0" mnemonicParsing="false" onAction="#GoToBackmateriel" text="Materiel" />
+      <Button fx:id="userback" layoutX="259.0" layoutY="135.0" mnemonicParsing="false" onAction="#GoToBackUser" prefHeight="25.0" prefWidth="60.0" text="User" />
+      <Button fx:id="eventback" layoutX="259.0" layoutY="214.0" mnemonicParsing="false" onAction="#GoToBackEvent" prefHeight="25.0" prefWidth="60.0" text="Event" />
+   </children>
+</AnchorPane>

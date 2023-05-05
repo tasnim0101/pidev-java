@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="308.0" prefWidth="684.0" styleClass="shadow" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Materiel.CardViewController">
+   <children>
+      <ImageView fx:id="img" fitHeight="316.0" fitWidth="500.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" />
+      <HBox layoutX="1.0" layoutY="1.0" prefHeight="308.0" prefWidth="682.0" styleClass="gardient" stylesheets="@style.css">
+         <children>
+            <VBox prefHeight="308.0" prefWidth="196.0">
+               <children>
+                  <Label prefHeight="130.0" prefWidth="142.0" text="Materiel" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="EventName" prefHeight="104.0" prefWidth="196.0" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="308.0" prefWidth="228.0">
+               <children>
+                  <Label prefHeight="138.0" prefWidth="174.0" text="Type" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Adresse" prefHeight="92.0" prefWidth="226.0" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="308.0" prefWidth="157.0">
+               <children>
+                  <Label prefHeight="134.0" prefWidth="138.0" text="Fournisseur" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="ShowCategory" prefHeight="92.0" prefWidth="154.0" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="308.0" prefWidth="142.0">
+               <!-- <children>
+                  <Button fx:id="likeButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleLike" prefHeight="26.0" prefWidth="56.0" style="-fx-background-color: #27CC21;" text="Like" />
+                  <Button fx:id="dislikeButton" mnemonicParsing="false" onAction="#handleDislike" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: #FF1900;" text="Dislike" />
+               </children>-->
+            </HBox>
+         </children>
+      </HBox>
+   </children>
+   <stylesheets>
+      <URL value="@style.css" />
+      <URL value="@../Assets/style.css" />
+   </stylesheets>
+</Pane>

@@ -11,50 +11,51 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AnchorPane" prefHeight="600.0" prefWidth="850.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.LaboController">
+<AnchorPane id="AnchorPane" fx:id="AnchorPane" prefHeight="500.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.LaboController">
     <stylesheets>
         <URL value="@labo.css" />
+      <URL value="@Assets/style.css" />
     </stylesheets>
    <children>
-      <TableView fx:id="laboTable" layoutX="13.0" layoutY="324.0" onMouseClicked="#MouseAction" prefHeight="200.0" prefWidth="818.0" styleClass="mainFxmlClass">
+      <TableView fx:id="laboTable" layoutX="37.0" layoutY="367.0" onMouseClicked="#MouseAction" prefHeight="265.0" prefWidth="1045.0" styleClass="mainFxmlClass">
          <columns>
-            <TableColumn fx:id="nom_col" prefWidth="155.99997234344482" text="Nom" />
-            <TableColumn fx:id="bloc_col" prefWidth="111.19999694824219" text="Bloc" />
-            <TableColumn fx:id="email_col" minWidth="0.0" prefWidth="212.0" text="E-mail" />
-            <TableColumn fx:id="tel_col" prefWidth="154.4000244140625" text="Telephone" />
-            <TableColumn fx:id="med_col" prefWidth="184.0" text="Medecin" />
+            <TableColumn fx:id="nom_col" prefWidth="202.3999900817871" text="Nom" />
+            <TableColumn fx:id="bloc_col" prefWidth="147.1999969482422" text="Bloc" />
+            <TableColumn fx:id="email_col" minWidth="0.0" prefWidth="200.0" text="E-mail" />
+            <TableColumn fx:id="tel_col" prefWidth="236.0" text="Telephone" />
+            <TableColumn fx:id="med_col" prefWidth="259.20001220703125" text="Medecin" />
          </columns>
       </TableView>
-      <Label layoutX="159.0" layoutY="14.0" prefHeight="36.0" prefWidth="240.0" text="Laboratoire " textFill="#3195d7">
+      <Label layoutX="317.0" layoutY="41.0" prefHeight="36.0" prefWidth="240.0" text="Laboratoire " textFill="#3195d7">
          <font>
             <Font name="Britannic Bold" size="36.0" />
          </font>
       </Label>
-      <TextField fx:id="nom" layoutX="308.0" layoutY="119.0" promptText="nom" styleClass="mainFxmlClass" />
-      <TextField fx:id="bloc" layoutX="46.0" layoutY="186.0" promptText="bloc" styleClass="mainFxmlClass" />
-      <TextField fx:id="email" layoutX="308.0" layoutY="186.0" promptText="e-mail" styleClass="mainFxmlClass" />
-      <TextField fx:id="telephone" layoutX="46.0" layoutY="256.0" promptText="telephone" styleClass="mainFxmlClass" />
-      <TextField fx:id="medecin" layoutX="308.0" layoutY="256.0" promptText="medecin" styleClass="mainFxmlClass" />
-      <Label fx:id="file_path" layoutX="626.0" layoutY="89.0" prefHeight="0.0" prefWidth="96.0" text="aucune séléctionée" textFill="#101213">
+      <TextField fx:id="nom" layoutX="466.0" layoutY="146.0" promptText="nom" styleClass="mainFxmlClass" />
+      <TextField fx:id="bloc" layoutX="204.0" layoutY="213.0" promptText="bloc" styleClass="mainFxmlClass" />
+      <TextField fx:id="email" layoutX="466.0" layoutY="213.0" promptText="e-mail" styleClass="mainFxmlClass" />
+      <TextField fx:id="telephone" layoutX="204.0" layoutY="283.0" promptText="telephone" styleClass="mainFxmlClass" />
+      <TextField fx:id="medecin" layoutX="466.0" layoutY="283.0" promptText="medecin" styleClass="mainFxmlClass" />
+      <Label fx:id="file_path" layoutX="784.0" layoutY="116.0" prefHeight="0.0" prefWidth="96.0" text="aucune séléctionée" textFill="#101213">
          <font>
             <Font name="Arial" size="11.0" />
          </font>
       </Label>
-      <Button fx:id="modifierB" layoutX="111.0" layoutY="69.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="36.0" prefWidth="106.0" styleClass="insert-button-V" text="Modifier" />
-      <Button fx:id="supprimerB" layoutX="339.0" layoutY="69.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="36.0" prefWidth="106.0" styleClass="insert-button-R" text="Supprimer" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="200.0" layoutX="574.0" layoutY="106.0" stroke="BLACK" strokeType="INSIDE" styleClass="mainFxmlClass" width="200.0" />
-      <ImageView fx:id="imageView" fitHeight="200.0" fitWidth="200.0" layoutX="574.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true" styleClass="mainFxmlClass" />
-      <Button fx:id="insertImage" layoutX="574.0" layoutY="106.0" mnemonicParsing="false" onAction="#insertImage" prefHeight="200.0" prefWidth="200.0" styleClass="insert-image-button" text="ajouter image">
+      <Button fx:id="modifierB" layoutX="269.0" layoutY="96.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="36.0" prefWidth="106.0" styleClass="insert-button-V" text="Modifier" />
+      <Button fx:id="supprimerB" layoutX="497.0" layoutY="96.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="36.0" prefWidth="106.0" styleClass="insert-button-R" text="Supprimer" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="200.0" layoutX="732.0" layoutY="133.0" stroke="BLACK" strokeType="INSIDE" styleClass="mainFxmlClass" width="200.0" />
+      <ImageView fx:id="imageView" fitHeight="200.0" fitWidth="200.0" layoutX="732.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true" styleClass="mainFxmlClass" />
+      <Button fx:id="insertImage" layoutX="732.0" layoutY="133.0" mnemonicParsing="false" onAction="#insertImage" prefHeight="200.0" prefWidth="200.0" styleClass="insert-image-button" text="ajouter image">
          <font>
             <Font size="8.0" />
          </font></Button>
-      <Label fx:id="identifiant" layoutX="44.0" layoutY="117.0" prefHeight="36.0" prefWidth="182.0" style="-fx-text-fill: transparent;" text="identifiant" textFill="#b4afaf" />
-      <Label fx:id="erreur" layoutX="99.0" layoutY="87.0" prefHeight="19.0" prefWidth="233.0" textAlignment="CENTER" textFill="#ff1010" />
-      <Label fx:id="clearNom" layoutX="499.0" layoutY="120.0" onMouseClicked="#CleaNom" prefHeight="26.0" prefWidth="24.0" styleClass="clear-button" text="X" textAlignment="CENTER" />
-      <Label fx:id="clearMail" layoutX="499.0" layoutY="187.0" onMouseClicked="#CleaMail" prefHeight="26.0" prefWidth="24.0" styleClass="clear-button" text="X" textAlignment="CENTER" />
-      <Label fx:id="clearMed" layoutX="499.0" layoutY="256.0" onMouseClicked="#ClearMed" prefHeight="26.0" prefWidth="24.0" styleClass="clear-button" text="X" textAlignment="CENTER" />
-      <Label fx:id="clearBloc" layoutX="238.0" layoutY="187.0" onMouseClicked="#ClearBloc" prefHeight="26.0" prefWidth="24.0" styleClass="clear-button" text="X" textAlignment="CENTER" />
-      <Label fx:id="clearTel" layoutX="238.0" layoutY="257.0" onMouseClicked="#CleaTel" prefHeight="26.0" prefWidth="24.0" styleClass="clear-button" text="X" textAlignment="CENTER" />
-      <Button fx:id="rechercher_imprimer" layoutX="46.0" layoutY="119.0" mnemonicParsing="false" onMouseClicked="#page_rechercher" prefHeight="34.0" prefWidth="188.0" styleClass="mainFxmlClass" text="Rechercher/PDF/Excel" />
+      <Label fx:id="identifiant" layoutX="202.0" layoutY="144.0" prefHeight="36.0" prefWidth="182.0" style="-fx-text-fill: transparent;" text="identifiant" textFill="#b4afaf" />
+      <Label fx:id="erreur" layoutX="257.0" layoutY="114.0" prefHeight="19.0" prefWidth="233.0" textAlignment="CENTER" textFill="#ff1010" />
+      <Label fx:id="clearNom" layoutX="657.0" layoutY="147.0" onMouseClicked="#CleaNom" prefHeight="26.0" prefWidth="24.0" styleClass="clear-button" text="X" textAlignment="CENTER" />
+      <Label fx:id="clearMail" layoutX="657.0" layoutY="214.0" onMouseClicked="#CleaMail" prefHeight="26.0" prefWidth="24.0" styleClass="clear-button" text="X" textAlignment="CENTER" />
+      <Label fx:id="clearMed" layoutX="657.0" layoutY="283.0" onMouseClicked="#ClearMed" prefHeight="26.0" prefWidth="24.0" styleClass="clear-button" text="X" textAlignment="CENTER" />
+      <Label fx:id="clearBloc" layoutX="396.0" layoutY="214.0" onMouseClicked="#ClearBloc" prefHeight="26.0" prefWidth="24.0" styleClass="clear-button" text="X" textAlignment="CENTER" />
+      <Label fx:id="clearTel" layoutX="396.0" layoutY="284.0" onMouseClicked="#CleaTel" prefHeight="26.0" prefWidth="24.0" styleClass="clear-button" text="X" textAlignment="CENTER" />
+      <Button fx:id="rechercher_imprimer" layoutX="204.0" layoutY="146.0" mnemonicParsing="false" onMouseClicked="#page_rechercher" prefHeight="34.0" prefWidth="188.0" styleClass="mainFxmlClass" text="Rechercher/PDF/Excel" />
    </children>
 </AnchorPane>

@@ -62,7 +62,7 @@ public class OpFrontController implements Initializable {
       private ObservableList<Operations> afficherListOperations() {
   OperationsService os=new OperationsService();
         List<Operations> ops = os.afficher();
-               os.showNotification("Liste des operations", "Voici le tableau de tout nos operations");
+             //  os.showNotification("Liste des operations", "Voici le tableau de tout nos operations");
 
         ObservableList<Operations> OpList = FXCollections.observableArrayList(ops);
         return OpList;

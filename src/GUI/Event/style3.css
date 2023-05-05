@@ -1,0 +1,26 @@
+#AnchorPane {
+    -fx-background-color: linear-gradient(#667eea, #764ba2);
+}
+
+Label {
+    -fx-font-size: 16pt; /* increases font size */
+    -fx-text-fill: #333; /* sets the text color */
+}
+
+TextField {
+    -fx-prompt-text-fill: #999; /* sets the prompt text color */
+    -fx-background-color: #FFF; /* sets the background color */
+    -fx-border-color: #CCC; /* sets the border color */
+}
+
+DatePicker {
+    -fx-font-size: 16pt; /* increases font size */
+    -fx-background-color: #FFF; /* sets the background color */
+    -fx-border-color: #CCC; /* sets the border color */
+}
+
+Button {
+    -fx-font-size: 16pt; /* increases font size */
+    -fx-background-color: #337AB7; /* sets the background color */
+    -fx-text-fill: #FFF; /* sets the text color */
+}

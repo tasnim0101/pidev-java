@@ -97,6 +97,36 @@ public class ClientttController implements Initializable {
         // handle the exception
     }
     }
+
+    @FXML
+    private void user(ActionEvent event) throws IOException {
+         FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/GUI/User/LoggedInClient.fxml"));
+        Node node = fxmlLoader2.load();
+        affichage.getChildren().setAll(node);
+    }
+
+    @FXML
+    private void materiel(ActionEvent event) throws IOException {
+         FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/GUI/Materiel/sample.fxml"));
+        Node node = fxmlLoader2.load();
+        affichage.getChildren().setAll(node);
+        
+    }
+
+    @FXML
+    private void event(ActionEvent event) throws IOException {
+         FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/GUI/Event/FrontEvent.fxml"));
+        Node node = fxmlLoader2.load();
+        affichage.getChildren().setAll(node);
+        
+    }
+
+    @FXML
+    private void dons(ActionEvent event) throws IOException {
+         FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/GUI/Event/FrontDon.fxml"));
+        Node node = fxmlLoader2.load();
+        affichage.getChildren().setAll(node);
+    }
     
     
 }

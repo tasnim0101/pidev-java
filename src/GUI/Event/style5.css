@@ -1,0 +1,32 @@
+
+#AnchorPane {
+    -fx-background-color: #F8F8F8; /* set the background color */
+}
+
+Text {
+    -fx-fill: #2E2E2E; /* set the text color */
+}
+
+Button {
+    -fx-background-color: #F4B400; /* set the button background color */
+    -fx-text-fill: white; /* set the button text color */
+    -fx-font-family: "Trebuchet MS"; /* set the button font family */
+    -fx-font-weight: bold; /* set the button font weight */
+    -fx-font-size: 14px; /* set the button font size */
+}
+
+TableView {
+    -fx-background-color: white; /* set the table background color */
+    -fx-font-size: 14px; /* set the table font size */
+}
+
+TableColumn {
+    -fx-alignment: CENTER_LEFT; /* center-align the table column text */
+    -fx-font-family: "Trebuchet MS"; /* set the table column font family */
+    -fx-font-size: 14px; /* set the table column font size */
+}
+
+#exportButton {
+    -fx-background-color: #007EAD; /* set the export button background color */
+    -fx-text-fill: white; /* set the export button text color */
+}

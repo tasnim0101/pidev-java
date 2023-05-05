@@ -22,7 +22,7 @@ import java.util.logging.Logger;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import org.controlsfx.control.Notifications;
+//import org.controlsfx.control.Notifications;
 import Entity.Operations;
 import tools.MaConnexion;
 
@@ -39,7 +39,7 @@ public class MedecinService {
     }
  
     
- public void showNotification(String title, String message) {
+/* public void showNotification(String title, String message) {
         Notifications notificationsBuilder = Notifications.create()
                 .title(title)
                 .text(message)
@@ -52,7 +52,7 @@ public class MedecinService {
         notificationsBuilder.graphic(logoImage);
 
         notificationsBuilder.show();
-    }
+    }*/
  
 public void ajouter(Medecin m) throws SQLException {
     sql = "INSERT INTO medecin(nom_med, prenom_med, tel_med, mail_med, specialite, diplome, photo) VALUES (?, ?, ?, ?, ?, ?, ?)";

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AcceuilController">
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="135.0" prefWidth="1300.0" spacing="110.0" style="-fx-border-color: white;" styleClass="login-bg" stylesheets="@design.css" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="170.0" fitWidth="214.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/logo.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lab_acceuil" onMouseClicked="#Acceuil_clk" style="-fx-border-color: white;" text="Acceuil" textFill="#fbeecd">
+               <font>
+                  <Font name="System Bold Italic" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="Lab_velo" onMouseClicked="#veloclik" style="-fx-border-color: white;" text="Velo" textFill="#fbeecd">
+               <font>
+                  <Font name="System Bold Italic" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="station_lab" onMouseClicked="#stationClikkk" style="-fx-border-color: white;" text="Station" textFill="#fbeecd">
+               <font>
+                  <Font name="System Bold Italic" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="event_lab" onMouseClicked="#eventclik" style="-fx-border-color: white;" text="Evenements" textFill="#fbeecd">
+               <font>
+                  <Font name="System Bold Italic" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="rec_lab" onMouseClicked="#recclik" style="-fx-border-color: white;" text="Reclamation" textFill="#fbeecd">
+               <font>
+                  <Font name="System Bold Italic" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="profil_lab" onMouseClicked="#profilclik" prefHeight="21.0" prefWidth="52.0" style="-fx-border-color: white;" text="Profil" textFill="#fbeecd">
+               <font>
+                  <Font name="System Bold Italic" size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <AnchorPane fx:id="formAcceuil" prefHeight="639.0" prefWidth="1300.0" style="-fx-border-color: white;" styleClass="login-card" stylesheets="@design.css" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="14.0" layoutY="183.0" text="Bienvenue sur notre site web de location de vélos électriques ! ">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="210.0" prefHeight="50.0" prefWidth="728.0" text="Nous , équipe WEDEV spécialisée dans la location de vélos électriques haute  gamme.">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="285.0" fitWidth="487.0" layoutX="778.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../GestionUserAziz/src/Images/imgProf.jpg" />
+               </image>
+            </ImageView>
+            <HBox alignment="CENTER" layoutY="532.0" prefHeight="100.0" prefWidth="1300.0" spacing="200.0" style="-fx-border-color: white;" styleClass="login-bg" stylesheets="@design.css">
+               <children>
+                  <Label prefHeight="35.0" prefWidth="174.0" style="-fx-border-color: white;" text="Nos Contactes" textFill="#fbeecd">
+                     <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                     </font>
+                  </Label>
+                  <VBox alignment="TOP_CENTER" prefHeight="153.0" prefWidth="132.0" spacing="25.0">
+                     <children>
+                        <Label text="EcoBikeGo" textFill="#fbeecd">
+                           <font>
+                              <Font name="System Italic" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="EcoBike_Rent" textFill="#fbeecd">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="92841145" textFill="#fbeecd">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="116.0" prefWidth="77.0">
+                     <children>
+                        <ImageView fitHeight="56.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/295077008_1109436539974632_1930415905854451312_n.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="56.0" fitWidth="51.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/332792804_5781500735278413_6676879911223366988_n.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="56.0" fitWidth="51.0" layoutX="10.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/313340199_6225562914124803_7042644647524670413_n.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <AnchorPane fx:id="FormVelo" prefHeight="554.0" prefWidth="1300.0" styleClass="login-card" stylesheets="@design.css" visible="false" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
